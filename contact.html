@@ -65,13 +65,14 @@
             <a href="skype:your_skype_name?chat"><i class="fab fa-skype" style="font-size: 30px;"></i></a>
         </p>
     </footer>
-    <script>
+     <script>
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
-            emailjs.sendForm('service_nyk7osb', 'template_mz2lhv1', this)
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
                 .then(function() {
                     alert('Message sent successfully!');
                 }, function(error) {
+                    console.error('Failed to send message:', error);
                     alert('Failed to send message. Please try again.');
                 });
         });
