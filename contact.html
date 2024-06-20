@@ -27,34 +27,46 @@
             <li><a href="education.html">Edu. + Exp.</a></li>
             <li><a href="skills.html">Skills</a></li>
             <li><a href="bio.html">Bio</a></li>
-            <li><a href="gaming.html">Gaming Highlights</a></li>
+            <li><a href="gaming.html">Game Highlights</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    <div class="content">
+    
+   <div class="content">
         <section id="contact">
-            <h2>Contact</h2>
-            <p> Please feel free to reach out to me using the form below. Thanks!</p>
-            <form action="mailto:i@ekoul.ru" method="post" enctype="text/plain">
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name"><br>
-                <label for="email">Email:</label><br>
-                <input type="text" id="email" name="email"><br>
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="4" cols="50"></textarea><br>
-                <input type="submit" value="Send">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+
+                <button type="submit">Send Message</button>
             </form>
         </section>
     </div>
-    
     <footer>
-    <p>&copy; 2024 Emmalie Cole</p>
-    <p>
-        <a href="https://github.com/i-ekoul"><i class="fab fa-github" style="font-size: 30px;"></i></a>
-        <a href="https://www.linkedin.com/in/es-cole/"><i class="fab fa-linkedin" style="font-size: 30px;"></i></a>
-        <a href="skype:live:emmalie.cole?chat"><i class="fab fa-skype" style="font-size: 30px;"></i></a>
-    </p>
-</footer>
-
+        <p>&copy; 2024 Emmalie Cole</p>
+        <p>
+            <a href="https://github.com/i-ekoul"><i class="fab fa-github" style="font-size: 30px;"></i></a>
+            <a href="https://www.linkedin.com/in/es-cole/"><i class="fab fa-linkedin" style="font-size: 30px;"></i></a>
+            <a href="skype:your_skype_name?chat"><i class="fab fa-skype" style="font-size: 30px;"></i></a>
+        </p>
+    </footer>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            emailjs.sendForm('service_nyk7osb', 'template_mz2lhv1', this)
+                .then(function() {
+                    alert('Message sent successfully!');
+                }, function(error) {
+                    alert('Failed to send message. Please try again.');
+                });
+        });
+    </script>
 </body>
 </html>
