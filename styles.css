@@ -37,7 +37,7 @@ header .banner-content img {
 
 header .banner-content {
     position: relative;
-    padding: 1em 0; /* Remove padding */
+    padding: 2em 0; /* Remove padding */
 }
 
 .content {
