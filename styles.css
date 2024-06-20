@@ -64,19 +64,24 @@ nav ul {
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
     margin-right: 10px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: white;
-    padding: 14px 20px;
-    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 nav ul li a:hover {
-    background-color: #4CAF50;
+    background-color: white;
+    color: #4CAF50;
+    border-color: #4CAF50;
 }
 
 section {
