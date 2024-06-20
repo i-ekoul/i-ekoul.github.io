@@ -3,253 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emmalie Cole - Personal Webpage</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <meta name="description" content="Personal webpage of Emmalie Cole, a computer science and software engineering undergraduate at SNHU.">
-    <meta name="keywords" content="Emmalie Cole, computer science, software engineering, SNHU, portfolio, game highlights">
+    <title>Emmalie Cole's Personal Webpage</title>
+    <link rel="icon" href="favicon.ico">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f8f9fa;
-            color: #343a40;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            color: #333;
+            background-color: #f5f5f5;
         }
-        header {
-            background-color: #343a40;
-            color: #f8f9fa;
-            padding: 1rem 2rem;
+        header, footer {
+            background-color: #333;
+            color: #fff;
             text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 1rem 0;
-            position: sticky;
-            top: 0;
-            background-color: #f8f9fa;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
             z-index: 1000;
         }
-        nav a {
-            text-decoration: none;
-            color: #495057;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-        nav a:hover {
-            color: #007bff;
-        }
-        section {
-            padding: 2rem;
-            max-width: 800px;
-            margin: auto;
-            background-color: #ffffff;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            flex: 1;
+        header {
+            top: 0;
         }
         footer {
-            background-color: #343a40;
-            color: #f8f9fa;
-            text-align: center;
-            padding: 1rem;
-            position: relative;
             bottom: 0;
-            width: 100%;
         }
-        img.profile-pic {
-            width: 150px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 100px 20px 60px; /* Adjust padding to account for fixed header and footer */
         }
-        ul.contact-list {
-            list-style: none;
-            padding: 0;
-        }
-        ul.contact-list li {
-            margin-bottom: 0.5rem;
-        }
-        .game-highlight {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        .game-highlight img {
-            width: 150px;
-            height: auto;
+        .section {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 20px;
             border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .game-highlight div {
-            flex: 1;
-        }
-        .slideshow-container {
-            position: relative;
+        .section img {
             max-width: 100%;
-            margin: auto;
-        }
-        .mySlides {
-            display: none;
-        }
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-        }
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-        .prev:hover, .next:hover {
-            background-color: rgba(0,0,0,0.8);
-        }
-        .text {
-            color: #f2f2f2;
-            font-size: 15px;
-            padding: 8px 12px;
-            position: absolute;
-            bottom: 8px;
-            width: 100%;
-            text-align: center;
-        }
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
+            height: auto;
             border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
         }
-        .active, .dot:hover {
-            background-color: #717171;
+        .quote {
+            font-style: italic;
+            text-align: center;
+            margin: 20px 0;
         }
-        @media (max-width: 768px) {
-            .game-highlight {
-                flex-direction: column;
-                align-items: center;
-            }
-            .game-highlight img {
-                width: 100%;
-                margin-bottom: 1rem;
-            }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="#about-me">About Me</a>
+            <a href="#bio">Bio</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-<header>
-    <h1>Emmalie Cole</h1>
-    <p>Undergraduate in Computer Science and Software Engineering at SNHU</p>
-</header>
+    <div class="container">
+        <section id="about-me" class="section">
+            <h2>About Me</h2>
+            <img src="profile-photo.jpg" alt="Profile Photo">
+            <p>Hello! My name is Emmalie Cole. I am an undergraduate computer science and software engineering student at Southern New Hampshire University (SNHU).</p>
+            <p class="quote">"Dulcius Ex Asperis"</p>
+        </section>
 
-<nav aria-label="Main navigation">
-    <a href="#about">About Me</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#game-highlights">Game Highlights</a>
-    <a href="#contact">Contact</a>
-</nav>
+        <section id="bio" class="section">
+            <h2>Bio</h2>
+            <p>I am a dedicated computer science student at SNHU, studying computer science and software engineering with a strong foundation in C++, Python, and Java. My expertise includes debugging, testing, data structures, algorithms, and object-oriented programming. I have practical experience in alpha and beta testing video games since 2002, where I identified and resolved in-game glitches and exploits. Beyond technical skills, I have a keen interest in writing and editing, working as a freelance songwriter and editor. My editing work focuses on content editing and ensuring clean translations from Russian to English, covering a range of topics from laser optics to stock market exchanges. I am passionate about leveraging my skills in dynamic and collaborative environments.</p>
+        </section>
 
-<section id="about" aria-labelledby="about-heading">
-    <h2 id="about-heading">About Me</h2>
-    <img src="photo_2024-06-15_23-29-41.jpg" alt="Profile Picture" class="profile-pic" width="800">
-    <p>Hi, I'm Emmalie Cole, an undergraduate at Southern New Hampshire University (SNHU), studying computer science and software engineering. I have a strong foundation in C++, Python, and Java, and I'm passionate about leveraging my skills in dynamic and collaborative environments. I have practical experience in debugging, testing, data structures, algorithms, and object-oriented programming. Beyond my technical skills, I have a keen interest in writing and editing, working as a freelance songwriter and editor. I'm currently writing my own dark-high fantasy novel and have been involved in alpha and beta testing video games since 2002.</p>
-</section>
+        <section id="blog" class="section">
+            <h2>Blog</h2>
+            <p>Welcome to my blog! Here, I share gaming highlights, short reviews, and my opinions on the games I'm currently playing.</p>
+            <!-- Example blog post -->
+            <article class="blog-post">
+                <h3>Game Title</h3>
+                <p><strong>Review:</strong> This is a brief review of the game. I enjoyed the storyline and the graphics are top-notch. The gameplay mechanics are intuitive and engaging.</p>
+                <p><strong>Opinion:</strong> Overall, it's a fantastic game that I highly recommend to anyone who loves adventure and action genres.</p>
+            </article>
+            <!-- Add more blog posts as needed -->
+        </section>
 
-<section id="portfolio">
-    <h2>Portfolio</h2>
-    <p>Welcome to my portfolio section! Here, you'll find some of the projects I've worked on, including coding assignments, software development projects, and my contributions to video game testing. More details and project links will be added soon!</p>
-</section>
-
-<section id="game-highlights">
-    <h2>Game Highlights</h2>
-    <div class="slideshow-container">
-        <!-- Slideshow images -->
-        <div class="mySlides fade">
-            <img src="0-101.jpg" alt="Game 1" style="width="800">
-            <div class="text">Halls of Torment</div>
-            <div>
-                <p>This is a brief review of the game. Share your thoughts, experiences, and highlights while playing the game.</p>
-            </div>
-        </div>
-        <div class="mySlides fade">
-            <img src="kynseed.jpg" alt="Game 2" style="width="800">
-            <div class="text">Kynseed</div>
-            <div>
-                <p>This is a brief review of the game. Share your thoughts, experiences, and highlights while playing the game.</p>
-            </div>
-        </div>
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <p>If you'd like to get in touch, feel free to reach out to me through the following methods:</p>
+            <ul>
+                <li>Email: emmalie.cole@example.com</li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/emmalie-cole-2b2a5b313/" target="_blank">Emmalie Cole</a></li>
+                <!-- Add more contact methods if needed -->
+            </ul>
+        </section>
     </div>
-    <br>
-    <!-- Dots -->
-    <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-    </div>
-</section>
 
-<section id="contact" aria-labelledby="contact-heading">
-    <h2 id="contact-heading">Contact</h2>
-    <p>If you'd like to get in touch, feel free to reach out to me via email or connect with me on LinkedIn:</p>
-    <ul class="contact-list">
-        <li>Email: <a href="mailto:emmalie.cole@example.com">emmalie.cole@example.com</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/emmalie-cole-2b2a5b313/" target="_blank">Emmalie Cole on LinkedIn</a></li>
-    </ul>
-</section>
-
-<footer>
-    <p>&copy; 2024 Emmalie Cole. All rights reserved.</p>
-    <p>
-        <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a> |
-        <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
-    </p>
-    <div class="social-media">
-        <a href="https://twitter.com/yourprofile" target="_blank"><img src="twitter-icon.png" alt="Twitter"></a>
-        <a href="https://github.com/yourprofile" target="_blank"><img src="github-icon.png" alt="GitHub"></a>
-    </div>
-</footer>
-
-<script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1} 
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none"; 
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block"; 
-        dots[slideIndex-1].className += " active";
-    }
-</script>
-
+    <footer>
+        <p>&copy; 2024 Emmalie Cole. All rights reserved.</p>
+    </footer>
 </body>
 </html>
