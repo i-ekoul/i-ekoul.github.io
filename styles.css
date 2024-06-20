@@ -148,3 +148,70 @@ footer img {
     transition: max-height 0.2s ease-out;
     margin-bottom: 10px;
 }
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    header {
+        height: 200px;
+    }
+
+    header .banner-content img {
+        max-height: 80%;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+        margin-right: 10px;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    nav ul li a {
+        padding: 10px 15px;
+        display: block;
+    }
+
+    .content {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        height: 150px;
+    }
+
+    header .banner-content img {
+        max-height: 70%;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+        margin-right: 10px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    section {
+        padding: 15px;
+        margin: 10px 0;
+    }
+
+    .game-highlight {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .game-highlight img {
+        width: 100px;
+        height: 100px;
+        margin: 0 0 10px 0;
+    }
+}
