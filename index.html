@@ -3,120 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emmalie Cole's Personal Webpage</title>
-    <link rel="icon" href="favicon.ico">
+    <title>Emmalie Cole - Personal Webpage</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f0f0f0;
             color: #333;
-            background-color: #f5f5f5;
         }
-        header, footer {
-            background-color: #333;
-            color: #fff;
+
+        header {
+            background-image: url('banner.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 2em 0;
+            position: relative;
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            float: left;
+            margin-right: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            background-color: #2c2c2c;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: #4CAF50;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        .project-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-list li {
+            margin-bottom: 15px;
+        }
+
+        .project-list img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        footer {
             text-align: center;
             padding: 1em 0;
+            background-color: #2c2c2c;
+            color: white;
             position: fixed;
             width: 100%;
-            z-index: 1000;
-        }
-        header {
-            top: 0;
-        }
-        footer {
             bottom: 0;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 100px 20px 60px; /* Adjust padding to account for fixed header and footer */
+
+        footer img {
+            width: 30px;
+            height: 30px;
+            margin: 0 10px;
+            vertical-align: middle;
         }
-        .section {
-            background-color: #fff;
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
         }
-        .section img {
-            display: block;
-            max-width: 150px;
-            height: auto;
-            margin: 0 auto;
-            border-radius: 50%;
+
+        .active, .accordion:hover {
+            background-color: #ccc;
         }
-        .quote {
-            font-style: italic;
-            text-align: center;
-            margin: 20px 0;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .blog-post {
-            margin: 20px 0;
-            padding: 15px;
-            background-color: #f9f9f9;
-            border-left: 4px solid #333;
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <a href="#about-me">About Me</a>
-            <a href="#bio">Bio</a>
-            <a href="#blog">Blog</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <img src="banner.jpg" alt="Banner Image" class="banner">
+        <h1>Welcome to Emmalie Cole's Personal Webpage</h1>
     </header>
-
-    <div class="container">
-        <section id="about-me" class="section">
-            <h2>About Me</h2>
-            <img src="profile-photo.jpg" alt="Profile Photo">
-            <p>Hello! My name is Emmalie Cole. I am an undergraduate computer science and software engineering student at Southern New Hampshire University (SNHU).</p>
-            <p class="quote">"Dulcius Ex Asperis"</p>
-        </section>
-
-        <section id="bio" class="section">
-            <h2>Bio</h2>
-            <p>I am a dedicated computer science student at SNHU, studying computer science and software engineering with a strong foundation in C++, Python, and Java. My expertise includes debugging, testing, data structures, algorithms, and object-oriented programming. I have practical experience in alpha and beta testing video games since 2002, where I identified and resolved in-game glitches and exploits. Beyond technical skills, I have a keen interest in writing and editing, working as a freelance songwriter and editor. My editing work focuses on content editing and ensuring clean translations from Russian to English, covering a range of topics from laser optics to stock market exchanges. I am passionate about leveraging my skills in dynamic and collaborative environments.</p>
-        </section>
-
-        <section id="blog" class="section">
-            <h2>Blog</h2>
-            <p>Welcome to my blog! Here, I share gaming highlights, short reviews, and my opinions on the games I'm currently playing.</p>
-            <!-- Example blog post -->
-            <article class="blog-post">
-                <h3>Game Title</h3>
-                <p><strong>Review:</strong> This is a brief review of the game. I enjoyed the storyline and the graphics are top-notch. The gameplay mechanics are intuitive and engaging.</p>
-                <p><strong>Opinion:</strong> Overall, it's a fantastic game that I highly recommend to anyone who loves adventure and action genres.</p>
-            </article>
-            <!-- Add more blog posts as needed -->
-        </section>
-
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <p>If you'd like to get in touch, feel free to reach out to me through the following methods:</p>
-            <ul>
-                <li>Email: emmalie.cole@example.com</li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/emmalie-cole-2b2a5b313/" target="_blank">Emmalie Cole</a></li>
-                <!-- Add more contact methods if needed -->
-            </ul>
-        </section>
-    </div>
-
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="about">
+        <h2>About Me</h2>
+        <img src="profile.jpg" alt="Emmalie Cole" class="profile-pic">
+        <p>Hi! I'm Emmalie Cole, a dedicated computer science student at Southern New Hampshire University (SNHU). I have a strong foundation in C++, Python, and Java, and my expertise includes debugging, testing, data structures, algorithms, and object-oriented programming.</p>
+        <p>With practical experience in alpha and beta testing video games since 2002, I have a keen eye for identifying and resolving in-game glitches and exploits. Beyond technical skills, I have a passion for writing and editing, working as a freelance songwriter and editor.</p>
+        <p>As an editor, I focus on content editing and creation, covering a range of topics from laser optics to stock market exchanges. I am also skilled in translating English-Russian and Russian-English texts, including technical subjects.</p>
+        <p>Passionate about leveraging my skills in dynamic and collaborative environments, I am always eager to take on new challenges and contribute to innovative projects.</p>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul class="project-list">
+            <li>
+                <a href="https://github.com/yourusername/project1">
+                    <img src="project1-thumbnail.jpg" alt="Project 1 Thumbnail">
+                    <span>Project 1: AI-Generated Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/yourusername/project2">
+                    <img src="project2-thumbnail.jpg" alt="Project 2 Thumbnail">
+                    <span>Project 2: Video Game Testing</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/yourusername/project3">
+                    <img src="project3-thumbnail.jpg" alt="Project 3 Thumbnail">
+                    <span>Project 3: Translation Services</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section id="skills">
+        <h2>Skills</h2>
+        <button class="accordion">Programming Languages</button>
+        <div class="panel">
+            <p>C++, Python, Java</p>
+        </div>
+        <button class="accordion">Software Development</button>
+        <div class="panel">
+            <p>Debugging, Testing, Data Structures, Algorithms, Object-Oriented Programming</p>
+        </div>
+        <button class="accordion">Other Skills</button>
+        <div class="panel">
+            <p>Alpha and Beta Testing of Video Games, Content Editing, Translation (English-Russian, Russian-English)</p>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <form action="mailto:emmalie@example.com" method="post" enctype="text/plain">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email"><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" cols="50"></textarea><br>
+            <input type="submit" value="Send">
+        </form>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/es-cole/">Emmalie Cole</a></p>
+    </section>
     <footer>
-        <p>&copy; 2024 Emmalie Cole. All rights reserved.</p>
+        <p>&copy; 2024 Emmalie Cole</p>
+        <p>
+            <a href="https://github.com/yourusername"><img src="github-icon.png" alt="GitHub"></a>
+            <a href="https://www.linkedin.com/in/es-cole/"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+            <!-- Add other social media icons similarly -->
+        </p>
     </footer>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+            });
+        }
+    </script>
 </body>
 </html>
