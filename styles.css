@@ -12,7 +12,7 @@ header {
     background-position: center;
     color: white;
     text-align: center;
-    padding: 3em 0; /* Reduced padding */
+    padding: 1em 0; /* Reduced padding */
     height: 145px; /* Reduced height */
     position: relative;
 }
