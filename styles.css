@@ -7,36 +7,13 @@ body {
 }
 
 header {
-    position: relative;
-    text-align: center;
-    color: white;
-    overflow: hidden;
-    height: 150px; /* Adjust height as needed */
-}
-
-header::before {
-    content: "";
     background-image: url('banner.jpg');
     background-size: cover;
     background-position: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    filter: blur(8px); /* Apply blur effect */
-    z-index: -1;
-}
-
-header .banner-content img {
-    width: 100%;
-    height: auto;
-    opacity: 1; /* Ensure the main banner is fully visible */
-}
-
-header .banner-content {
+    color: white;
+    text-align: center;
+    padding: 2em 0; /* Reduced padding */
     position: relative;
-    padding: 1em 0; /* Adjust padding as needed */
 }
 
 .content {
