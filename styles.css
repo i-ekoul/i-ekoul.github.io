@@ -12,8 +12,8 @@ header {
     background-position: center;
     color: white;
     text-align: center;
-    padding: 1em 0; /* Reduced padding */
-    height: 150px; /* Reduced height */
+    padding: 0em 0; /* Reduced padding */
+    height: 120px; /* Reduced height */
     position: relative;
 }
 
