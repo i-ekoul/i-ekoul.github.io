@@ -122,6 +122,17 @@ footer img {
     vertical-align: middle;
 }
 
+footer a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #4CAF50;
+}
+
 .accordion {
     background-color: #eee;
     color: #444;
