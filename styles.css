@@ -58,14 +58,33 @@ header .banner-content {
     padding: 20px;
 }
 
-.profile-pic {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    float: left;
-    margin-right: 20px;
+.about-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
 }
+
+.profile-container {
+    flex: 0 0 auto;
+    width: auto; /* Adjust width */
+    height: auto; /* Adjust height */
+}
+
+.profile-pic {
+   .profile-pic {
+    max-width: 200px; /* Adjust to your preferred max width */
+    max-height: 300px; /* Adjust to your preferred max height */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    /* border-radius: 50%; /* Optional: if you want to keep the circular shape */
+}
+
+}
+
+.about-text {
+    flex: 1;
+}
+
 
 nav ul {
     list-style: none;
