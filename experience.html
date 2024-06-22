@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmalie Cole - Education & Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
+
+      <!-- favicon code below --> 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+    
+<body>
+    <header>
+        <div class="banner-content">
+        <img src="banner.jpg" alt="Banner Image" class="banner">
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="experience.html"><Experience</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="bio.html">Bio</a></li>
+            <li><a href="gaming.html">Game Highlights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <section id="experience">
+        <h3>Experience</h3>
+            <p><strong>The National Society of Leadership and Success (NSLS) · Apprenticeship</strong> (2024 - Present)</p>
+            <ul>
+                <li>Selected by campus administration to participate among top students in a leadership program including:
+                        <li>Leadership Training Day: Trained in leadership and success skills via an introspective and interactive training session.</li>
+                        <li>Speaker Events: Participated in seminars led by celebrities and best-selling authors on topics such as leadership, time management, and goal setting.</li>
+                        <li>Success Networking Teams: Participated in peer based leadership development teams. Experience in setting and achieving goals, receiving coaching, coaching others, and holding others accountable to commitments.</li>
+            </ul>
+                <p><strong>Writer and Editor · Freelance</strong> (2022 - Present)</p>
+            <ul>
+                <li>Edit and refine written content to ensure clarity, coherence, and stylistic excellence, maintaining high editorial standards across various subjects.</li>
+                <li>Specialize in content editing and producing precise translations involving the English and Russian languages, covering complex topics such as laser optics and stock market exchanges.</li>
+                <li>Develop high-quality written materials for a diverse client base, including technical documentation and creative narratives, demonstrating exceptional versatility and attention to detail.</li>
+                <li>Editing content and translating texts between English and Russian</li>
+            </ul>
+            
+            <p><strong>Senator for McConnell Residential Hall · Volunteer Position</strong> (2017 - 2018)</p>
+            <ul>
+                <li>Took place at the University of Idaho, elected by my peers to represent them as their Senator.</li>
+                <li>Responsibility: Acted as a liaison between the residents and the university administration, voicing student concerns and suggestions.</li>
+                <li>Advocacy: Promoted and support initiatives that improve the residential experience.</li>
+                <li>Event Planning: Organized and coordinated social, educational, and community-building events for hall residents.</li>
+                <li>Policy Development: Participated in the creation and implementation of policies that affect residential life.</li>
+                <li>Committee Involvement: Served on various committees to address specific issues such as sustainability, safety, and inclusivity within the residence halls.</li>
+            </ul>
+            
+            <p><strong>Alpha/Beta Game Tester · Freelance</strong> (2002 - Present)</p>
+            <ul>
+                <li>Conduct comprehensive alpha and beta testing for a wide array of video games, effectively identifying and resolving critical glitches and exploits to enhance user experience.</li>
+                <li>Collaborate closely with multidisciplinary development teams to ensure optimal game performance and player satisfaction.</li>
+                <li>Provide detailed analytical reports and actionable feedback on gameplay mechanics and functionality, contributing to the successful launch of high-quality games.</li>
+                <li>Providing detailed feedback to development teams</li>
+            </ul>
+        </section>
+      </div>
+</div> 
+    
+    <footer>
+    <p>&copy; 2024 Emmalie Cole</p>
+    <p>
+        <a href="https://github.com/i-ekoul"><i class="fab fa-github" style="font-size: 30px;"></i></a>
+        <a href="https://www.linkedin.com/in/es-cole/"><i class="fab fa-linkedin" style="font-size: 30px;"></i></a>
+        <a href="skype:live:emmalie.cole?chat"><i class="fab fa-skype" style="font-size: 30px;"></i></a>
+    </p>
+</footer>
+
+   <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+            });
+        }
+
+        var subAcc = document.getElementsByClassName("sub-accordion");
+        for (var i = 0; i < subAcc.length; i++) {
+            subAcc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var subPanel = this.nextElementSibling;
+                if (subPanel.style.maxHeight) {
+                    subPanel.style.maxHeight = null;
+                } else {
+                    subPanel.style.maxHeight = subPanel.scrollHeight + "px";
+                } 
+            });
+        }
+
+      // Modal Image Viewer
+var modal = document.getElementById("myModal");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+var images = document.getElementsByClassName("thumbnail");
+
+for (var i = 0; i < images.length; i++) {
+    images[i].addEventListener("click", function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    });
+}
+
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+
+    </script>
+</body>
+</html>
