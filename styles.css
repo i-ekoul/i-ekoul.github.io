@@ -72,8 +72,8 @@ header .banner-content {
 
 .profile-pic {
    .profile-pic {
-    max-width: 50%; /* Adjust to your preferred max width */
-    max-height: 50%; /* Adjust to your preferred max height */
+    max-width: 50px; /* Adjust to your preferred max width */
+    max-height: 50px; /* Adjust to your preferred max height */
     width: auto; /* Maintain aspect ratio */
     height: auto; /* Maintain aspect ratio */
     /* border-radius: 50%; /* Optional: if you want to keep the circular shape */
