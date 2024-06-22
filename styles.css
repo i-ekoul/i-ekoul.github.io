@@ -111,11 +111,9 @@ footer {
     padding: 1em 0;
     background-color: #333;
     color: white;
-    position: absolute; /* Change to absolute positioning */
-    width: 100%; /* Ensure the footer takes the full width */
-    bottom: 0; /* Align it to the bottom of the page */
-    left: 0; /* Align it to the left edge */
-
+    position: relative;
+    width: 100%;
+}
 footer img {
     width: 30px;
     height: 30px;
@@ -131,7 +129,6 @@ footer a {
 footer a:hover {
     color: #4CAF50;
 }
-
 
 /* Accordion Styles */
 .accordion, .sub-accordion {
