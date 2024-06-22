@@ -115,25 +115,23 @@ footer {
     width: 100%; /* Ensure the footer takes the full width */
     bottom: 0; /* Align it to the bottom of the page */
     left: 0; /* Align it to the left edge */
-}
 
 footer img {
     width: 30px;
     height: 30px;
     margin: 0 10px;
-    vertical-align: relaive;
+    vertical-align: middle;
 }
-
 footer a {
     color: white;
     margin: 0 10px;
     text-decoration: none;
     transition: color 0.3s;
 }
-
 footer a:hover {
     color: #4CAF50;
 }
+
 
 /* Accordion Styles */
 .accordion, .sub-accordion {
