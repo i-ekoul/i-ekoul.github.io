@@ -106,7 +106,8 @@
         <img class="modal-content" id="img01">
         <div id="caption"></div>
     </div>
-    <script>
+            
+  <script>
         var acc = document.getElementsByClassName("accordion");
         for (var i = 0; i < acc.length; i++) {
             acc[i].addEventListener("click", function() {
@@ -114,9 +115,11 @@
                 var panel = this.nextElementSibling;
                 if (panel.style.maxHeight) {
                     panel.style.maxHeight = null;
+                    panel.classList.remove("active");
                 } else {
                     panel.style.maxHeight = panel.scrollHeight + "px";
-                } 
+                    panel.classList.add("active");
+                }
             });
         }
 
@@ -127,9 +130,11 @@
                 var subPanel = this.nextElementSibling;
                 if (subPanel.style.maxHeight) {
                     subPanel.style.maxHeight = null;
+                    subPanel.classList.remove("active");
                 } else {
                     subPanel.style.maxHeight = subPanel.scrollHeight + "px";
-                } 
+                    subPanel.classList.add("active");
+                }
             });
         }
 
@@ -148,7 +153,7 @@
         }
 
         var span = document.getElementsByClassName("close")[0];
-        span.onclick = function() { 
+        span.onclick = function() {
             modal.style.display = "none";
         }
     </script>
