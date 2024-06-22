@@ -45,27 +45,20 @@
             <button class="accordion">Badges</button>
             <div class="panel">
                 <!-- Sub-Accordion for Microsoft Learn -->
-                <button class="sub-accordion">Microsoft Learn</button>
-                <div class="sub-panel">
-                    <p><a href="https://learn.microsoft.com/en-us/users/emmalie-cole/" target="_blank">View my Microsoft Learn Badges</a></p>
-                </div>
-                
+                <button class="sub-accordion" data-url="https://learn.microsoft.com/en-us/users/emmalie-cole/">Microsoft Learn</button>
                 <!-- Sub-Accordion for Codecademy -->
-                <button class="sub-accordion">Codecademy</button>
-                <div class="sub-panel">
-                    <p><a href="https://www.codecademy.com/users/i-ekoul/achievements" target="_blank">View my Codecademy Badges</a></p>
-                </div>
+                <button class="sub-accordion" data-url="https://www.codecademy.com/users/i-ekoul/achievements">Codecademy</button>
             </div>
 
             
-            <p><strong>The National Society of Leadership and Success (NSLS) · Apprenticeship</strong> (2024 - Present)</p>
+            <p><strong>The National Society of Leadership and Success (NSLS) · Apprenticeship</strong> · (2024 - Present)</p>
             <ul>
                 <li>Selected by campus administration to participate among top students in a leadership program including:
                         <li>Leadership Training Day: Trained in leadership and success skills via an introspective and interactive training session.</li>
                         <li>Speaker Events: Participated in seminars led by celebrities and best-selling authors on topics such as leadership, time management, and goal setting.</li>
                         <li>Success Networking Teams: Participated in peer based leadership development teams. Experience in setting and achieving goals, receiving coaching, coaching others, and holding others accountable to commitments.</li>
             </ul>
-                <p><strong>Writer and Editor · Freelance</strong> (2022 - Present)</p>
+                <p><strong>Writer and Editor · Freelance</strong> · (2022 - Present)</p>
             <ul>
                 <li>Edit and refine written content to ensure clarity, coherence, and stylistic excellence, maintaining high editorial standards across various subjects.</li>
                 <li>Specialize in content editing and producing precise translations involving the English and Russian languages, covering complex topics such as laser optics and stock market exchanges.</li>
@@ -73,7 +66,7 @@
                 <li>Editing content and translating texts between English and Russian</li>
             </ul>
             
-            <p><strong>Senator for McConnell Residential Hall · Volunteer Position</strong> (2017 - 2018)</p>
+            <p><strong>Senator for McConnell Residential Hall · Volunteer Role</strong> · (2017 - 2018)</p>
             <ul>
                 <li>Took place at the University of Idaho, elected by my peers to represent them as their Senator.</li>
                 <li>Responsibility: Acted as a liaison between the residents and the university administration, voicing student concerns and suggestions.</li>
@@ -83,7 +76,7 @@
                 <li>Committee Involvement: Served on various committees to address specific issues such as sustainability, safety, and inclusivity within the residence halls.</li>
             </ul>
             
-            <p><strong>Alpha/Beta Game Tester · Freelance</strong> (2002 - Present)</p>
+            <p><strong>Alpha/Beta Game Tester · Freelance / Volunteer Role</strong> · (2002 - Present)</p>
             <ul>
                 <li>Conduct comprehensive alpha and beta testing for a wide array of video games, effectively identifying and resolving critical glitches and exploits to enhance user experience.</li>
                 <li>Collaborate closely with multidisciplinary development teams to ensure optimal game performance and player satisfaction.</li>
@@ -104,44 +97,34 @@
     </p>
 </footer>
 
-<!-- Accordion Scripting -->
- <script>
-    var acc = document.getElementsByClassName("accordion");
-    for (var i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-                panel.classList.remove("active");
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-                panel.classList.add("active");
-            }
-        });
-    }
+ <!-- JavaScript for Accordion and Redirection -->
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                    panel.classList.remove("active");
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                    panel.classList.add("active");
+                }
+            });
+        }
 
-    // Modal Image Viewer
-    var modal = document.getElementById("myModal");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
+        var subAccButtons = document.getElementsByClassName("sub-accordion");
+        for (var i = 0; i < subAccButtons.length; i++) {
+            subAccButtons[i].addEventListener("click", function() {
+                var url = this.getAttribute("data-url");
+                if (url) {
+                    window.open(url, "_blank"); // Opens the link in a new tab
+                }
+            });
+        }
+    </script>
+
     
-    var subAcc = document.getElementsByClassName("sub-accordion");
-    for (var i = 0; i < subAcc.length; i++) {
-        subAcc[i].addEventListener("click", function() {
-            var imgSrc = this.dataset.img;
-            var imgAlt = this.dataset.alt;
-            modal.style.display = "block";
-            modalImg.src = imgSrc;
-            captionText.innerHTML = imgAlt;
-        });
-    }
-
-    var span = document.getElementsByClassName("close")[0];
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-</script>
-
 </body>
 </html>
