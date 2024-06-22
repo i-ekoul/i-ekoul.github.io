@@ -23,7 +23,7 @@ header {
     color: white;
     overflow: hidden;
     height: 450px; /* Adjusted height */
-    padding-bottom: 0; /* Adjust or remove padding-bottom */
+    padding-bottom: -1; /* Adjust or remove padding-bottom */
 }
 
 header::before {
