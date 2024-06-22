@@ -112,7 +112,7 @@
 </footer>
 
 <!-- Accordion Scripting -->
-   <script>
+ <script>
     var acc = document.getElementsByClassName("accordion");
     for (var i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function() {
@@ -120,41 +120,32 @@
             var panel = this.nextElementSibling;
             if (panel.style.maxHeight) {
                 panel.style.maxHeight = null;
+                panel.classList.remove("active");
             } else {
                 panel.style.maxHeight = panel.scrollHeight + "px";
+                panel.classList.add("active");
             }
         });
     }
 
-    var subAcc = document.getElementsByClassName("sub-accordion");
-    for (var i = 0; i < subAcc.length; i++) {
-        subAcc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var subPanel = this.nextElementSibling;
-            if (subPanel.style.maxHeight) {
-                subPanel.style.maxHeight = null;
-            } else {
-                subPanel.style.maxHeight = subPanel.scrollHeight + "px";
-            }
-        });
-    }
-
-    // Modal Image Viewer - JavaScript //
+    // Modal Image Viewer
     var modal = document.getElementById("myModal");
     var modalImg = document.getElementById("img01");
     var captionText = document.getElementById("caption");
-    var images = document.getElementsByClassName("thumbnail");
-
-    for (var i = 0; i < images.length; i++) {
-        images[i].addEventListener("click", function(){
+    
+    var subAcc = document.getElementsByClassName("sub-accordion");
+    for (var i = 0; i < subAcc.length; i++) {
+        subAcc[i].addEventListener("click", function() {
+            var imgSrc = this.dataset.img;
+            var imgAlt = this.dataset.alt;
             modal.style.display = "block";
-            modalImg.src = this.src;
-            captionText.innerHTML = this.alt;
+            modalImg.src = imgSrc;
+            captionText.innerHTML = imgAlt;
         });
     }
 
     var span = document.getElementsByClassName("close")[0];
-    span.onclick = function() { 
+    span.onclick = function() {
         modal.style.display = "none";
     }
 </script>
