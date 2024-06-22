@@ -111,8 +111,10 @@ footer {
     padding: 1em 0;
     background-color: #333;
     color: white;
-    position: relative;
-    width: 100%;
+    position: absolute; /* Change to absolute positioning */
+    width: 100%; /* Ensure the footer takes the full width */
+    bottom: 0; /* Align it to the bottom of the page */
+    left: 0; /* Align it to the left edge */
 }
 
 footer img {
