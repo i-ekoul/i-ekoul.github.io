@@ -50,40 +50,20 @@
           <!-- Accordion for Certifications -->
             <button class="accordion">Certification Records</button>
             <div class="panel">
-                <button class="sub-accordion">The National Society of Leadership & Success: Foundations of Leadership</button>
-                <div class="sub-panel">
-                    <img src="certificate1.jpg" alt="The National Society of Leadership & Success: Foundations of Leadership" class="thumbnail">
-                </div>
-                <button class="sub-accordion">Massachusetts Institute of Technology: Introduction to Computer Science & Programming Using Python</button>
-                <div class="sub-panel">
-                    <img src="certificate2.jpg" alt="Massachusetts Institute of Technology: Introduction to Computer Science & Programming Using Python" class="thumbnail">
-                </div>
-                <button class="sub-accordion">OnTESOL: 120+ Hours in Educational Studies in Teaching English to students of other languages (TESOL)</button>
-                <div class="sub-panel">
-                    <img src="certificate3.jpg" alt="OnTESOL: 120+ Hours in Educational Studies in Teaching English to students of other languages (TESOL)" class="thumbnail">
-                </div>
-                <button class="sub-accordion">The University of British Columbia: Chinese Thought: Ancient Wisdom Meets Modern Science</button>
-                <div class="sub-panel">
-                    <img src="certificate4.jpg" alt="The University of British Columbia: Chinese Thought: Ancient Wisdom Meets Modern Science" class="thumbnail">
-                </div>
-                <button class="sub-accordion">Codecademy: Learn C: Introduction</button>
-                <div class="sub-panel">
-                    <img src="certificate5.jpg" alt="Codecademy: Learn C: Introduction" class="thumbnail">
-                </div>
-                <button class="sub-accordion">Codecademy: Learn the Command Line</button>
-                <div class="sub-panel">
-                    <img src="certificate6.jpg" alt="Codecademy: Learn the Command Line" class="thumbnail">
-                </div>
-            </div>
+                <button class="sub-accordion" data-img="certificate1.jpg" data-alt="The National Society of Leadership & Success: Foundations of Leadership">The National Society of Leadership & Success: Foundations of Leadership</button>
+                <button class="sub-accordion" data-img="certificate2.jpg" data-alt="Massachusetts Institute of Technology: Introduction to Computer Science & Programming Using Python">Massachusetts Institute of Technology: Introduction to Computer Science & Programming Using Python</button>
+                <button class="sub-accordion" data-img="certificate3.jpg" data-alt="OnTESOL: 120+ Hours in Educational Studies in Teaching English to students of other languages (TESOL)">OnTESOL: 120+ Hours in Educational Studies in Teaching English to students of other languages (TESOL)</button>
+                <button class="sub-accordion" data-img="certificate4.jpg" data-alt="The University of British Columbia: Chinese Thought: Ancient Wisdom Meets Modern Science">The University of British Columbia: Chinese Thought: Ancient Wisdom Meets Modern Science</button>
+                <button class="sub-accordion" data-img="certificate5.jpg" data-alt="Codecademy: Learn C: Introduction">Codecademy: Learn C: Introduction</button>
+                <button class="sub-accordion" data-img="certificate6.jpg" data-alt="Codecademy: Learn the Command Line">Codecademy: Learn the Command Line</button>
+           </div>
             
-            <!-- Accordion for Degrees -->
+        <!-- Accordion for Degrees -->
             <button class="accordion">Degree Record</button>
             <div class="panel">
-                <button class="sub-accordion">Southern New Hampshire University: Associate of Arts in Liberal Arts</button>
-                <div class="sub-panel">
-                    <img src="degree1.jpg" alt="Southern New Hampshire University: Associate of Arts in Liberal Arts" class="thumbnail">
-                </div>
-            </div>
+                <button class="sub-accordion" data-img="degree1.jpg" data-alt="Southern New Hampshire University: Associate of Arts in Liberal Arts">Southern New Hampshire University: Associate of Arts in Liberal Arts</button>
+        </div>
+
     
     
     <footer>
@@ -95,62 +75,51 @@
     </p>
 </footer>
 
-   <!-- The Modal -->
-    <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="img01">
-        <div id="caption"></div>
-    </div>
+  <!-- The Modal -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+
             
-  <script>
-        var acc = document.getElementsByClassName("accordion");
-        for (var i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                    panel.classList.remove("active");
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                    panel.classList.add("active");
-                }
-            });
-        }
+ <script>
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+                panel.classList.remove("active");
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+                panel.classList.add("active");
+            }
+        });
+    }
 
-        var subAcc = document.getElementsByClassName("sub-accordion");
-        for (var i = 0; i < subAcc.length; i++) {
-            subAcc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var subPanel = this.nextElementSibling;
-                if (subPanel.style.maxHeight) {
-                    subPanel.style.maxHeight = null;
-                    subPanel.classList.remove("active");
-                } else {
-                    subPanel.style.maxHeight = subPanel.scrollHeight + "px";
-                    subPanel.classList.add("active");
-                }
-            });
-        }
+    // Modal Image Viewer
+    var modal = document.getElementById("myModal");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    
+    var subAcc = document.getElementsByClassName("sub-accordion");
+    for (var i = 0; i < subAcc.length; i++) {
+        subAcc[i].addEventListener("click", function() {
+            var imgSrc = this.dataset.img;
+            var imgAlt = this.dataset.alt;
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+            captionText.innerHTML = imgAlt;
+        });
+    }
 
-        // Modal Image Viewer
-        var modal = document.getElementById("myModal");
-        var modalImg = document.getElementById("img01");
-        var captionText = document.getElementById("caption");
-        var images = document.getElementsByClassName("thumbnail");
+    var span = document.getElementsByClassName("close")[0];
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+</script>
 
-        for (var i = 0; i < images.length; i++) {
-            images[i].addEventListener("click", function(){
-                modal.style.display = "block";
-                modalImg.src = this.src;
-                captionText.innerHTML = this.alt;
-            });
-        }
-
-        var span = document.getElementsByClassName("close")[0];
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-    </script>
 </body>
 </html>
