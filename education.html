@@ -31,6 +31,7 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
+
     <div class="content">
         <section id="education">
             <h2>Education & Experience</h2>
@@ -38,6 +39,26 @@
             <p><strong>Southern New Hampshire University</strong> · Bachelor of Science in Computer Science (2021 - 2026)</p>
             <p><strong>Massachusetts Institute of Technology</strong> · Certification in Computer Science using Python (August-November 2023)</p>
             <p><strong>University of Idaho</strong> · Bachleor of Science in Psychology [Transferred to SNHU in 2021]</p>
+
+             <!-- Accordion for Certifications -->
+            <button class="accordion">Certifications</button>
+            <div class="panel">
+                <div class="certification">
+                    <h3>Certification 1</h3>
+                    <img src="certificate1.jpg" alt="Certification 1">
+                </div>
+                <div class="certification">
+                    <h3>Certification 2</h3>
+                    <img src="certificate2.jpg" alt="Certification 2">
+                </div>
+                <div class="certification">
+                    <h3>Certification 3</h3>
+                    <img src="certificate3.jpg" alt="Certification 3">
+                </div>
+                <!-- Add more certifications as needed -->
+            </div>
+        </section>
+    </div>
             
             <h3>Experience</h3>
             <p><strong>The National Society of Leadership and Success (NSLS) · Apprenticeship</strong> (2024 - Present)</p>
@@ -84,5 +105,20 @@
     </p>
 </footer>
 
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+            });
+        }
+    </script>
+    
 </body>
 </html>
