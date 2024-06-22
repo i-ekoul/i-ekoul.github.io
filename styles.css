@@ -113,14 +113,13 @@ footer {
     color: white;
     position: relative;
     width: 100%;
-    left: 0;
 }
 
 footer img {
     width: 30px;
     height: 30px;
     margin: 0 10px;
-    vertical-align: middle;
+    vertical-align: relaive;
 }
 
 footer a {
