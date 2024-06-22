@@ -151,6 +151,14 @@
     </p>
 </footer>
 
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <!-- Accordion style match-->
     <script>
         var acc = document.getElementsByClassName("accordion");
         for (var i = 0; i < acc.length; i++) {
@@ -164,7 +172,38 @@
                 } 
             });
         }
+
+        var subAcc = document.getElementsByClassName("sub-accordion");
+        for (var i = 0; i < subAcc.length; i++) {
+            subAcc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var subPanel = this.nextElementSibling;
+                if (subPanel.style.maxHeight) {
+                    subPanel.style.maxHeight = null;
+                } else {
+                    subPanel.style.maxHeight = subPanel.scrollHeight + "px";
+                } 
+            });
+        }
+
+        // Modal Image Viewer
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        var images = document.getElementsByClassName("thumbnail");
+
+        for (var i = 0; i < images.length; i++) {
+            images[i].addEventListener("click", function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            });
+        }
+
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() { 
+            modal.style.display = "none";
+        }
     </script>
-    
 </body>
 </html>
