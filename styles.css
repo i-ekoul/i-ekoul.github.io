@@ -36,13 +36,12 @@ header::before {
     left: 0;
     right: 0;
     bottom: 0;
-    filter: blur(8px); /* Apply blur effect */
     z-index: -1;
 }
 
 header .banner-content img {
-    width: 75%;
-    max-height: 75%; /* Ensure the main banner fits within the header height */
+    width: 100%;
+    max-height: 100%; /* Ensure the main banner fits within the header height */
     object-fit: cover; /* Maintain aspect ratio and cover the area */
     opacity: 1; /* Ensure the main banner is fully visible */
 }
