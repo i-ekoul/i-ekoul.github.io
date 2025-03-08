@@ -28,7 +28,7 @@ header {
     padding: 0;
     margin: 0;
     overflow: hidden;
-    background: none; /* Remove unwanted background */
+    background: #675c56; /* none; to remove background */
 }
 
 /* ENSURE BANNER IMAGE FITS CORRECTLY */
