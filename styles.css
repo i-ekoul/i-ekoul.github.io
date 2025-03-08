@@ -103,9 +103,9 @@ nav ul li a {
     text-decoration: none;
     color: white;
     padding: 10px 20px;
-    border: 2px solid #4CAF50;
+    border: 2px solid #675c56;
     border-radius: 4px;
-    background-color: #4CAF50;
+    background-color: #675c56;
     transition: background-color 0.3s, border-color 0.3s;
 }
 
