@@ -21,7 +21,7 @@ section,
 /* FULL-WIDTH BANNER FIX */
 header {
     width: 100vw; /* Full viewport width */
-    height: 250px; /* Adjust height as needed */
+    height: 200px; /* Adjust height as needed */
     display: flex;
     align-items: center;
     justify-content: center;
