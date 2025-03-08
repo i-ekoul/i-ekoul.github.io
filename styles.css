@@ -16,14 +16,16 @@ section,
 .sub-accordion {
     font-family: 'Bellota Text', sans-serif;
 }
-
 header {
-    position: relative;
-    text-align: center;
-    color: white;
+    width: 100vw; /* Full viewport width */
+    height: 180px; /* Reduce height to prevent pixelation & overlap */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
     overflow: hidden;
-    height: 450px; /* Adjusted height */
-    padding-bottom: 10; /* Adjust or remove padding-bottom */
+    background-color: #675c56; /* Matches button color */
 }
 
 header::before {
