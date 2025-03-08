@@ -23,7 +23,7 @@ header {
     color: white;
     overflow: hidden;
     height: 450px; /* Adjusted height */
-    padding-bottom: 50; /* Adjust or remove padding-bottom */
+    padding-bottom: 10; /* Adjust or remove padding-bottom */
 }
 
 header::before {
@@ -41,8 +41,8 @@ header::before {
 }
 
 header .banner-content img {
-    width: 95%;
-    max-height: 85%; /* Ensure the main banner fits within the header height */
+    width: 75%;
+    max-height: 75%; /* Ensure the main banner fits within the header height */
     object-fit: cover; /* Maintain aspect ratio and cover the area */
     opacity: 1; /* Ensure the main banner is fully visible */
 }
