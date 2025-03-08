@@ -44,7 +44,7 @@ header::before {
 
 header .banner-content img {
     width: 75%;
-    max-height: 65%; /* Ensure the main banner fits within the header height */
+    max-height: 75%; /* Ensure the main banner fits within the header height */
     object-fit: cover; /* Maintain aspect ratio and cover the area */
     opacity: 1; /* Ensure the main banner is fully visible */
 }
@@ -113,7 +113,7 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: white;
-    color: #cac9ca;
+    color: #dab65a;
     border-color: #675c56;
 }
 
