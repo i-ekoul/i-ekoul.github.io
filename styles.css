@@ -2,7 +2,7 @@ body {
     font-family: 'Bellota Text', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #cac9ca;
     color: #333;
 }
 
@@ -23,7 +23,7 @@ header {
     color: white;
     overflow: hidden;
     height: 450px; /* Adjusted height */
-    padding-bottom: 20; /* Adjust or remove padding-bottom */
+    padding-bottom: 50; /* Adjust or remove padding-bottom */
 }
 
 header::before {
