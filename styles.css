@@ -94,16 +94,16 @@ nav ul li a {
     text-decoration: none;
     color: white;
     padding: 10px 20px;
-    border: 2px solid #675c56;
+    border: 2px solid #607f83;
     border-radius: 4px;
-    background-color: #675c56;
+    background-color: #607f83;
     transition: background-color 0.3s, border-color 0.3s;
 }
 
 nav ul li a:hover {
-    background-color: white;
-    color: #dab65a;
-    border-color: #675c56;
+    background-color: #d9d9d9;
+    color: #f3a16d;
+    border-color: #607f83;
 }
 
 section {
@@ -117,7 +117,7 @@ section {
 .project-item {
     margin-bottom: 20px;
     padding: 10px;
-    background-color: #f4f4f9;
+    background-color: #607f83;
     border: 1px solid #ccc;
     border-radius: 8px;
 }
@@ -133,7 +133,7 @@ section {
 }
 
 .project-item a:hover {
-    color: #dab65a;
+    color: #f3a16d;
 }
 
 footer {
@@ -157,7 +157,7 @@ footer a {
     transition: color 0.3s;
 }
 footer a:hover {
-    color: #4CAF50;
+    color: #607f83;
 }
 
 /* Accordion Styles */
