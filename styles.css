@@ -42,7 +42,7 @@ header::before {
 
 header .banner-content img {
     width: 75%;
-    max-height: 75%; /* Ensure the main banner fits within the header height */
+    max-height: 83%; /* Ensure the main banner fits within the header height */
     object-fit: cover; /* Maintain aspect ratio and cover the area */
     opacity: 1; /* Ensure the main banner is fully visible */
 }
