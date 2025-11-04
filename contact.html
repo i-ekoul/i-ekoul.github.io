@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmalie Cole - Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+   
+    <!-- EmailJS script-->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init('toRCGPsiHzbenmUEt');
+        })();
+    </script>
+
+      <!-- favicon code below --> 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+</head>
+    
+<body>
+    <header>
+        <div class="banner-content">
+        <img src="banner.jpg" alt="Banner Image" class="banner">
+        </div>
+    </header>
+    
+<nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="bio.html">Bio</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    
+    <div class="content">
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Thank you again for visiting my site!</p>
+            <p>Please feel free to contact me using the form below.</p>
+            <p>My current response time is between ~24-48 hours.</p>
+            <p>Letters of Recommendation are provided upon *Request Only*.</p>
+            
+            <form id="contact-form">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+        
+    </div>
+    <footer>
+        <p>&copy; 2024-2025 Emmalie Cole</p>
+        <p>
+            <a href="https://github.com/i-ekoul"><i class="fab fa-github" style="font-size: 30px;"></i></a>
+            <a href="https://www.linkedin.com/in/es-cole/"><i class="fab fa-linkedin" style="font-size: 30px;"></i></a>
+        </p>
+    </footer>
+ <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            emailjs.sendForm('service_nyk7osb', 'template_mz2lhv1', this)
+                .then(function() {
+                    alert('Message sent successfully!');
+                }, function(error) {
+                    console.error('Failed to send message:', error);
+                    alert('Failed to send message. Please try again.');
+                });
+        });
+    </script>
+</body>
+</html>

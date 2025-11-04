@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+
+      <!-- favicon code below --> 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+    
+<body>
+    <header>
+        <div class="banner-content">
+        <img src="banner.jpg" alt="Banner Image" class="banner">
+        </div>
+    </header>
+    
+   <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="bio.html">Bio</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+
+    <div class="content">
+        <section id="education">
+            <h2>Academic Affiliations</h2>
+            <p><strong>Southern New Hampshire University</strong> · Bachelor of Science in Computer Science & Software Engineering · (2021 - 2026)</p>
+            <p><strong>Diplomatic Academy of the Ministry of Foreign Affairs of the Russian Federation</strong> · Russian Language · (2024 - 2025)</p>
+            <p><strong>Southern New Hampshire University</strong> · Associate of Arts in Liberal Arts · (2021 - 2023)</p>
+            <p><strong>Massachusetts Institute of Technology</strong> · Certificate Program · (2023)</p>
+            <p><strong>Coventry House International - OnTESOL</strong> · Certificate Program · (2022)</p>
+            <p><strong>University of Idaho</strong> · Bachelor of Arts in History & Philosophy · (2017-2019) · [Transferred to SNHU]</p>
+        <!-- Add any additional information desired below here-->
+            <h3><a href="https://meritpages.com/escole" target="_blank">>My Merit Page</a></h3>
+                
+          <!-- Accordion for Certifications -->
+            <button class="accordion">Certification Records</button>
+            <div class="panel">
+                <button class="sub-accordion" data-img="certificate7.jpg" data-alt="EA">Electronic Arts Software Engineering Job Simulation</button>
+                <button class="sub-accordion" data-img="certificate1.jpg" data-alt="NSLS">The National Society of Leadership & Success: Foundations of Leadership</button>
+                <button class="sub-accordion" data-img="certificate2.jpg" data-alt="MITx">Massachusetts Institute of Technology: Introduction to Computer Science & Programming Using Python</button>
+                <button class="sub-accordion" data-img="certificate3.jpg" data-alt="OnTESOL">Coventry House International: Educational Studies in Teaching English to students of other languages (TESOL)</button>
+           </div>
+            
+        <!-- Accordion for Degrees -->
+            <button class="accordion">Degree Record</button>
+            <div class="panel">
+                <button class="sub-accordion" data-img="degree1.jpg" data-alt="Southern New Hampshire University: Associate of Arts in Liberal Arts">Southern New Hampshire University: Associate of Arts in Liberal Arts</button>
+        </div>
+    </div>
+ </section>  
+    
+    <footer>
+    <p>&copy; 2024-2025 Emmalie Cole</p>
+    <p>
+        <a href="https://github.com/i-ekoul"><i class="fab fa-github" style="font-size: 30px;"></i></a>
+        <a href="https://www.linkedin.com/in/es-cole/"><i class="fab fa-linkedin" style="font-size: 30px;"></i></a>
+  </p>
+</footer>
+
+  <!-- The Modal -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+
+            
+ <script>
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+                panel.classList.remove("active");
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+                panel.classList.add("active");
+            }
+        });
+    }
+
+    // Modal Image Viewer
+    var modal = document.getElementById("myModal");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    
+    var subAcc = document.getElementsByClassName("sub-accordion");
+    for (var i = 0; i < subAcc.length; i++) {
+        subAcc[i].addEventListener("click", function() {
+            var imgSrc = this.dataset.img;
+            var imgAlt = this.dataset.alt;
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+            captionText.innerHTML = imgAlt;
+        });
+    }
+
+    var span = document.getElementsByClassName("close")[0];
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+</script>
+
+</body>
+</html>

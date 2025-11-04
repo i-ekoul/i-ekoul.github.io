@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- favicon code below --> 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+    
+<body>
+    <header>
+        <div class="banner-content">
+        <img src="banner.jpg" alt="Banner Image" class="banner">
+        </div>
+    </header>
+    
+  <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="bio.html">Bio</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    
+    <div class="content">
+        <section id="skills">
+            <h2>Skills</h2>
+            
+            <button class="accordion">Programming Languages</button>
+    <div class="panel">
+        <ul>
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>TypeScript</li>
+            <li>TailwindCSS</li>
+            <li>C/C++</li>
+            <li>C#</li>
+            <li>Go</li>
+            <li>HTML/CSS</li>
+            <li>Python</li>
+        </ul>
+    </div>
+
+    <button class="accordion">Software Development</button>
+    <div class="panel">
+        <ul>
+            <li>Object-Oriented Programming (OOP)</li>
+            <li>Software Development & Testing</li>
+            <li>Agile Methodologies (Scrum)</li>
+            <li>Software Architecture & Design</li>
+            <li>Test-Driven Development (TDD)</li>
+            <li>Code Debugging & Analysis</li>
+            <li>Algorithms & Data Structures</li>
+        </ul>
+    </div>
+
+    <button class="accordion">Tools & Frameworks</button>
+    <div class="panel">
+        <ul>
+            <li><strong>Version Control & CI/CD:</strong> Git, GitHub, Jenkins, CircleCI, Docker</li>
+            <li><strong>Frontend & Backend Development:</strong> Vue.js, React, Next.js, Node.js, Flask, Spring, Express</li>
+            <li><strong>Databases:</strong> Supabase, MySQL, NoSQL, MongoDB, SQLite, PostgreSQL</li>
+            <li><strong>Mobile Dev:</strong> Andriod Studio, Expo (go)</li>
+            <li><strong>Data Analysis:</strong> Pandas, NumPy, SciPy, Matplotlib, Seaborn</li>
+            <li><strong>AI & Machine Learning:</strong> ChatGPT, Gemini, DeepSeek, Claude, Grok, Watsonx</li>
+            <li><strong>Visualization & Documentation:</strong> Wolfram Alpha, Mathematica, Typora, Tableau, Mermaid.js</li>
+            <li><strong>IDEs & Development Environments:</strong> Cursor, Visual Studio, Eclipse, PyCharm, IntelliJ IDEA</li>
+        </ul>
+    </div>
+
+    <button class="accordion">Operating Systems</button>
+    <div class="panel">
+        <ul>
+            <li>Windows</li>
+            <li>Linux (Ubuntu, Mint)</li>
+            <li>Android & Apple</li>
+            <li>Bash & Command Line</li>
+            <li>Networking Basics</li>
+        </ul>
+    </div>
+
+    <button class="accordion">Soft Skills & Communication</button>
+    <div class="panel">
+        <ul>
+            <li><strong>Leadership:</strong> Team Management & Strategic Delegation</li>
+            <li><strong>Communication:</strong> Explaining Technical Concepts Clearly</li>
+            <li><strong>Analytical Thinking:</strong> Problem-Solving and Planning</li>
+            <li><strong>Mentorship:</strong> Academic & Technical Guidance</li>
+            <li><strong>Collaboration:</strong> Strong Interpersonal Skills</li>
+            <li><strong>Productivity Tools:</strong> MS Office, G-Suite, Teams, Slack, Zoom</li>
+        </ul>
+    </div>
+
+    <button class="accordion">Writing & Creative Work</button>
+    <div class="panel">
+        <ul>
+            <li>Technical Writing & Editing</li>
+            <li>Bilingual Text Translation (EN-RU)</li>
+            <li>Prose & World-Building</li>
+            <li>Songwriting & Content Creation</li>
+            <li>Character Development</li>
+        </ul>
+    </div>
+
+    <button class="accordion">Spoken Languages</button>
+    <div class="panel">
+        <ul>
+            <li>English (Native)</li>
+            <li>Russian (A2 Level)</li>
+        </ul>
+    </div>
+            
+        </section>
+    </div>
+                
+    <footer>
+        <p>&copy; 2024-2025 Emmalie Cole</p>
+        <p>
+            <a href="https://github.com/i-ekoul"><i class="fab fa-github" style="font-size: 30px;"></i></a>
+            <a href="https://www.linkedin.com/in/es-cole/"><i class="fab fa-linkedin" style="font-size: 30px;"></i></a>
+            <!-- Add other social media icons similarly -->
+        </p>
+    </footer>
+                
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+            });
+        }
+    </script>
+                
+</body>
+</html>

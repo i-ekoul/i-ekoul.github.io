@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+      <!-- favicon code below --> 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+    
+<body>
+    <header>
+        <div class="banner-content">
+        <img src="banner.jpg" alt="Banner Image" class="banner">
+        </div>
+    </header>
+    
+ <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="bio.html">Bio</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+      <div class="content">
+        <section id="experience">
+        <h2>Experience</h2>
+
+               <!-- Accordion for Badges -->
+            <button class="accordion">Badges</button>
+            <div class="panel">
+                <!-- Sub-Accordion for Microsoft Learn -->
+                <button class="sub-accordion" data-url="https://learn.microsoft.com/en-us/users/emmalie-cole/">Microsoft Learn</button>
+                <!-- Sub-Accordion for Codecademy -->
+                <button class="sub-accordion" data-url="https://www.codecademy.com/users/i-ekoul/achievements">Codecademy</button>
+            </div>
+
+
+             <p><strong>Full Stack Software Engineer · SmallChess</strong> · (2025 - Present)</p>
+            <ul>
+                        <li>Cross-platform development for chess-focused software.</li>
+                        <li>Developing and refining both front-end and back-end features.</li>
+                        <li>Collaborating with the engineering team on UI, architecture, and functionality.</li> 
+
+            </ul>
+             <p><strong>Electronic Arts Software Engineering Virtual Experience Program · Hosted by Forage</strong> · (2024)</p>
+            <ul>
+                        <li>Proposed a new feature for the Sims 4 and wrote a Feature Proposal describing it to other stakeholders.</li>
+                        <li>Built a class diagram and created a header file in C++ with class definitions for each object.</li>
+                        <li>Patched a bugfix and optimized the Sims 4 codebase by implementing an improved data structure.</li>
+                        
+            </ul>
+            <p><strong>The National Society of Leadership and Success (NSLS) · Sigma Alpha Pi Member</strong> · (2024 - Present)</p>
+            <ul>
+                <li>Selected by campus administration to participate among top students in a leadership program including:
+                        <li>Leadership Training Day: Trained in leadership and success skills via an introspective and interactive training session.</li>
+                        <li>Speaker Events: Participated in seminars led by celebrities and best-selling authors on topics such as leadership, time management, and goal setting.</li>
+                        <li>Success Networking Teams: Participated in peer-based leadership development teams. Experience in setting and achieving goals, receiving coaching, coaching others, and holding others accountable to commitments.</li>
+            </ul>
+                <p><strong>Writer and Editor · Freelance</strong> · (2022 - 2024)</p>
+            <ul>
+                <li>Edit and refine written content to ensure clarity, coherence, and stylistic excellence, maintaining high editorial standards across various subjects.</li>
+                <li>Specialize in content editing and producing precise translations involving the English and Russian languages, covering complex topics such as laser optics and stock market exchanges.</li>
+                <li>Develop high-quality written materials for a diverse client base, including technical documentation and creative narratives, demonstrating exceptional versatility and attention to detail.</li>
+                <li>Editing content and translating texts between English and Russian</li>
+            </ul>
+            
+            <p><strong>Senator for McConnell Residential Hall · Volunteer Role</strong> · (2017 - 2018)</p>
+            <ul>
+                <li>Took place at the University of Idaho, elected by my peers to represent them as their Senator.</li>
+                <li>Responsibility: Acted as a liaison between the residents and the university administration, voicing student concerns and suggestions.</li>
+                <li>Advocacy: Promoted and support initiatives that improve the residential experience.</li>
+                <li>Event Planning: Organized and coordinated social, educational, and community-building events for hall residents.</li>
+                <li>Policy Development: Participated in the creation and implementation of policies that affect residential life.</li>
+                <li>Committee Involvement: Served on various committees to address specific issues such as sustainability, safety, and inclusivity within the residence halls.</li>
+            </ul>
+            
+            <p><strong>Alpha/Beta Game Tester · Freelance / Volunteer Role</strong> · (2005 - Present)</p>
+            <ul>
+                <li>Conduct comprehensive alpha and beta testing for a wide array of video games, effectively identifying and resolving critical glitches and exploits to enhance user experience.</li>
+                <li>Collaborate closely with multidisciplinary development teams to ensure optimal game performance and player satisfaction.</li>
+                <li>Provide detailed analytical reports and actionable feedback on gameplay mechanics and functionality, contributing to the successful launch of high-quality games.</li>
+                <li>Providing detailed feedback to development teams</li>
+            </ul>
+
+
+        </section>
+    </div>
+    
+    <footer>
+    <p>&copy; 2024-2025 Emmalie Cole</p>
+    <p>
+        <a href="https://github.com/i-ekoul"><i class="fab fa-github" style="font-size: 30px;"></i></a>
+        <a href="https://www.linkedin.com/in/es-cole/"><i class="fab fa-linkedin" style="font-size: 30px;"></i></a>
+    </p>
+</footer>
+
+ <!-- JavaScript for Accordion and Redirection -->
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                    panel.classList.remove("active");
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                    panel.classList.add("active");
+                }
+            });
+        }
+
+        var subAccButtons = document.getElementsByClassName("sub-accordion");
+        for (var i = 0; i < subAccButtons.length; i++) {
+            subAccButtons[i].addEventListener("click", function() {
+                var url = this.getAttribute("data-url");
+                if (url) {
+                    window.open(url, "_blank"); // Opens the link in a new tab
+                }
+            });
+        }
+    </script>
+
+    
+</body>
+</html>
