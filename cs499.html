@@ -78,7 +78,9 @@
             <!-- Professional Self-Assessment -->
             <section id="self-assessment">
                 <h3>Professional Self-Assessment</h3>
-                <p>[Placeholder for Professional Self-Assessment content]</p>
+                <p>Throughout my computer science journey, I have developed a strong foundation in software engineering principles, problem-solving methodologies, and technical communication. This capstone portfolio represents a culmination of my learning, demonstrating my ability to enhance existing codebases, apply systematic improvement strategies, and articulate technical decisions clearly.</p>
+                <p>My approach to software development emphasizes maintainability, correctness, and professional communication. Through the enhancements showcased in this portfolio, I have strengthened my skills in service-layer design, computational graphics algorithms, and database optimization. Each artifact improvement reflects careful consideration of edge cases, performance implications, and long-term maintainability.</p>
+                <p>This portfolio demonstrates my readiness to contribute effectively in professional software engineering environments, where code quality, documentation, and collaborative communication are essential.</p>
             </section>
 
             <!-- Code Review Video -->
@@ -87,19 +89,33 @@
                 <div class="video-container">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/JAm3KHmM8Os" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
+                <p><a href="https://youtu.be/JAm3KHmM8Os" target="_blank">View Code Review Video on YouTube</a></p>
             </section>
 
             <!-- Enhancement One — Category One (CS320) -->
             <section id="enhancement-one">
                 <h3>Enhancement One — Category One (CS320)</h3>
-                <p>This artifact demonstrates software testing and quality assurance practices through comprehensive test case development and implementation. The enhancement focuses on improving test coverage and validation mechanisms for a contact service application. The work showcases systematic testing methodologies and automated test execution capabilities.</p>
+                <p>This artifact demonstrates service-layer design and input validation practices through enhancements to the ContactService class. The Milestone Two improvements focus on centralized validation helpers, guarded update operations, and structured Result/ErrorCode semantics for predictable error handling. The work showcases maintainable service-layer architecture and consistent constraint enforcement across CRUD operations.</p>
                 
                 <h4>Skills Demonstrated</h4>
                 <ul>
-                    <li>Software Testing & QA</li>
-                    <li>Test Case Design</li>
-                    <li>Automated Testing</li>
-                    <li>Test Coverage Analysis</li>
+                    <li>Service-Layer Design</li>
+                    <li>Input Validation & Constraint Enforcement</li>
+                    <li>Structured Error Handling</li>
+                    <li>Code Refactoring & Maintainability</li>
+                </ul>
+
+                <h4>Before vs After vs Evidence</h4>
+                <p><strong>Before:</strong> Validation logic was scattered across methods, update operations could silently ignore invalid inputs, and error handling relied on boolean returns without structured error information.</p>
+                <p><strong>After:</strong> Centralized validation helpers enforce constraints consistently, guarded updates fail operations when constraints are violated, and structured Result/ErrorCode types provide clear error semantics without exposing exceptions.</p>
+                <p><strong>Evidence:</strong> The enhanced codebase demonstrates improved maintainability through reduced duplication, explicit constraint documentation, and predictable failure modes. The internal Result type enables comprehensive error handling while preserving the original public API.</p>
+
+                <h4>Outcome Alignment</h4>
+                <ul>
+                    <li>Design & Software Engineering: Centralized validation and structured results improve code organization and maintainability</li>
+                    <li>Algorithms & Data Structures: Efficient constraint checking and guarded update logic demonstrate algorithmic thinking</li>
+                    <li>Software Development Lifecycle: Refactoring approach preserves backward compatibility while improving robustness</li>
+                    <li>Communication: Clear documentation of invariants and error codes improves code readability and team collaboration</li>
                 </ul>
 
                 <h4>Links</h4>
@@ -135,14 +151,27 @@
             <!-- Enhancement Two — Category Two (CS330) -->
             <section id="enhancement-two">
                 <h3>Enhancement Two — Category Two (CS330)</h3>
-                <p>This artifact showcases 3D graphics programming and computer graphics concepts through the implementation of object picking functionality in an OpenGL-based application. The enhancement adds interactive selection capabilities that allow users to identify and manipulate 3D objects within a rendered scene. The work demonstrates understanding of coordinate transformations, ray-casting algorithms, and user interaction in 3D environments.</p>
+                <p>This artifact showcases 3D graphics programming and computational geometry through the implementation of ray-based object picking using axis-aligned bounding box (AABB) slab intersection. The Milestone Two enhancement adds interactive selection capabilities that return the closest intersected object identifier, enabling deterministic and reproducible picking behavior. The implementation includes robust handling of edge cases (parallel rays, rays inside volumes) and documents trade-offs for scaling to larger scenes.</p>
                 
                 <h4>Skills Demonstrated</h4>
                 <ul>
                     <li>3D Graphics Programming</li>
-                    <li>OpenGL</li>
-                    <li>Computer Graphics Algorithms</li>
-                    <li>User Interaction Design</li>
+                    <li>Computational Geometry Algorithms</li>
+                    <li>Ray-Casting & Intersection Testing</li>
+                    <li>Performance-Aware Design</li>
+                </ul>
+
+                <h4>Before vs After vs Evidence</h4>
+                <p><strong>Before:</strong> The scene rendered static 3D objects without interactive selection capabilities. Users could view the scene but had no way to identify or interact with individual objects.</p>
+                <p><strong>After:</strong> Ray-based picking implementation enables deterministic object selection using slab-based ray-AABB intersection. The pickObjectId helper returns the nearest intersected object, with safeguards for edge cases and documentation for broad-phase acceleration strategies.</p>
+                <p><strong>Evidence:</strong> The implementation demonstrates correct geometric reasoning through robust edge-case handling. Trade-off notes document the O(n) per-pick complexity and outline uniform-grid traversal as a future optimization path for larger scenes, showing awareness of scalability considerations.</p>
+
+                <h4>Outcome Alignment</h4>
+                <ul>
+                    <li>Algorithms & Data Structures: Slab intersection algorithm demonstrates geometric algorithm implementation and complexity analysis</li>
+                    <li>Design & Software Engineering: Self-contained picking implementation shows modular design without disrupting existing architecture</li>
+                    <li>Computer Science Foundations: Mathematical correctness in coordinate transformations and intersection calculations</li>
+                    <li>Communication: In-code documentation and trade-off notes demonstrate professional technical writing</li>
                 </ul>
 
                 <h4>Links</h4>
@@ -178,14 +207,27 @@
             <!-- Enhancement Three — Category Three (CS340) -->
             <section id="enhancement-three">
                 <h3>Enhancement Three — Category Three (CS340)</h3>
-                <p>This artifact demonstrates database design and full-stack web development through the creation of an animal shelter management dashboard. The enhancement integrates frontend interfaces with backend database operations to provide comprehensive data management capabilities. The work showcases database normalization, RESTful API design, and responsive web application development.</p>
+                <p>This artifact demonstrates database optimization and data-access layer design through enhancements to the animal_shelter.py module. The Milestone Two improvements focus on compound indexing for query performance, input normalization and validation helpers, structured result payloads for consistent error handling, and an explain_query helper for performance verification. The work showcases production-ready database practices and maintainable data-access interfaces.</p>
                 
                 <h4>Skills Demonstrated</h4>
                 <ul>
-                    <li>Database Design & Management</li>
-                    <li>Full-Stack Development</li>
-                    <li>RESTful API Development</li>
-                    <li>Web Application Architecture</li>
+                    <li>Database Optimization & Indexing</li>
+                    <li>Data-Access Layer Design</li>
+                    <li>Input Validation & Normalization</li>
+                    <li>Query Performance Analysis</li>
+                </ul>
+
+                <h4>Before vs After vs Evidence</h4>
+                <p><strong>Before:</strong> Queries executed without compound indexes, input validation was inconsistent, and error handling relied on exceptions or raw return values without structured responses.</p>
+                <p><strong>After:</strong> Idempotent compound-index creation optimizes common query paths, centralized validation ensures well-formed inputs before query execution, and standardized success/error dictionaries enable consistent failure handling. The explain_query helper supports performance verification.</p>
+                <p><strong>Evidence:</strong> The enhanced module demonstrates improved reliability through defensive input handling and structured error contracts. Index-aware design supports predictable query performance as the dataset scales, and the explain helper provides concrete evidence of optimization effectiveness.</p>
+
+                <h4>Outcome Alignment</h4>
+                <ul>
+                    <li>Database Systems: Compound indexing and query optimization demonstrate database performance awareness</li>
+                    <li>Design & Software Engineering: Structured result payloads and validation helpers improve interface design and maintainability</li>
+                    <li>Software Development Lifecycle: Performance verification tools support evidence-based optimization</li>
+                    <li>Communication: Documentation of indexing strategy and validation constraints demonstrates professional database practices</li>
                 </ul>
 
                 <h4>Links</h4>
@@ -208,7 +250,7 @@
                 </ul>
                 <p>Collectively, these improvements strengthen reliability (fewer unhandled failure modes), maintainability (one validation path), and scalability (index-aware query design).</p>
                 <h5>Course outcomes coverage</h5>
-                <p>In Milestone 1, I planned to use this artifact to emphasize database competency and secure, maintainable interfaces between the UI and the persistence layer. The Milestone 4 enhancement aligns strongly with that plan because it operationalizes performance and validation concerns rather than describing them abstractly.</p>
+                <p>In Milestone 2, I planned to use this artifact to emphasize database competency and secure, maintainable interfaces between the UI and the persistence layer. The Milestone 4 enhancement aligns strongly with that plan because it operationalizes performance and validation concerns rather than describing them abstractly.</p>
                 <ul>
                     <li>Outcomes achieved so far: demonstrated database optimization awareness through compound indexing and explain-based verification; improved software design by standardizing structured responses and validation; improved professionalism by documenting assumptions and constraints within the code.</li>
                     <li>Outcomes remaining: capture and include concrete evidence (for example, an explain output excerpt or a brief benchmark note) showing the index improves the intended query path, and extend validation tests for a broader set of malformed inputs.</li>
@@ -225,7 +267,7 @@
         <p>
             <a href="https://github.com/i-ekoul"><i class="fab fa-github" style="font-size: 30px;"></i></a>
             <a href="https://www.linkedin.com/in/es-cole/"><i class="fab fa-linkedin" style="font-size: 30px;"></i></a>
-     <!-- Add other social media icons similarly above  -->
+     <!-- Other social media icons can go similarly above  -->
         </p>
     </footer>
 
