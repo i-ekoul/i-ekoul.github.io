@@ -112,8 +112,9 @@
     }
 
     .video-container iframe {
+        width: 800px;
+        height: 600px;
         max-width: 100%;
-        height: auto;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
@@ -146,6 +147,10 @@
         border-left: 4px solid #607f83;
         background-color: #fafafa;
         padding: 0;
+        margin: 20px 0;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     /* Accordion Button Styling for Enhancement Sections */
@@ -156,7 +161,7 @@
         color: white;
         font-size: 1.2em;
         font-weight: bold;
-        padding: 18px 20px;
+        padding: 18px 25px;
         width: 100%;
         text-align: left;
         border: none;
@@ -164,6 +169,7 @@
         cursor: pointer;
         transition: background-color 0.3s ease;
         margin: 0;
+        box-sizing: border-box;
     }
 
     #enhancement-one .accordion:hover,
@@ -184,12 +190,17 @@
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease-out;
+        box-sizing: border-box;
     }
 
     /* Before vs After vs Evidence Styling */
     #cs499 section h4 + p strong {
         color: #607f83;
         font-size: 1.05em;
+    }
+
+    #cs499 section p strong.evidence-text {
+        color: #f3a16d;
     }
 
     #cs499 section p {
@@ -237,27 +248,33 @@
     }
 
     .skills-list li {
-        background-color: #e8e8e8;
+        background-color: #607f83;
+        color: white;
         padding: 8px 15px;
-        border-radius: 20px;
-        border: 1px solid #ccc;
+        border-radius: 4px;
+        border: 2px solid #607f83;
         margin: 0;
         display: inline-block;
-        transition: all 0.3s ease;
+        transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        cursor: pointer;
     }
 
     .skills-list li:hover {
-        background-color: #607f83;
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        background-color: #d9d9d9;
+        color: #f3a16d;
+        border-color: #607f83;
     }
 
     /* Outcome List Styling */
+    .outcome-list {
+        list-style: none;
+        padding-left: 0;
+    }
+
     .outcome-list li {
         padding-left: 15px;
         border-left: 3px solid #607f83;
-        margin-left: 10px;
+        margin-left: 0;
         margin-bottom: 12px;
         background-color: #f9f9f9;
         padding: 10px 15px;
@@ -277,10 +294,24 @@
     }
 
     /* Responsive Video */
+    @media (max-width: 900px) {
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+        }
+    }
+
     @media (max-width: 768px) {
         .video-container iframe {
             width: 100%;
-            height: 250px;
+            height: 400px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .video-container iframe {
+            width: 100%;
+            height: 300px;
         }
     }
     </style>
@@ -313,7 +344,7 @@
             <section id="code-review">
                 <h3>Code Review Video</h3>
                 <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/JAm3KHmM8Os" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="800" height="600" src="https://www.youtube.com/embed/JAm3KHmM8Os" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <p><a href="https://youtu.be/JAm3KHmM8Os" target="_blank">View Code Review Video on YouTube</a></p>
             </section>
@@ -335,7 +366,7 @@
                 <h4>Before vs After vs Evidence</h4>
                 <p><strong>Before:</strong> Validation logic was scattered across methods, update operations could silently ignore invalid inputs, and error handling relied on boolean returns without structured error information.</p>
                 <p><strong>After:</strong> Centralized validation helpers enforce constraints consistently, guarded updates fail operations when constraints are violated, and structured Result/ErrorCode types provide clear error semantics without exposing exceptions.</p>
-                <p><strong>Evidence:</strong> The enhanced codebase demonstrates improved maintainability through reduced duplication, explicit constraint documentation, and predictable failure modes. The internal Result type enables comprehensive error handling while preserving the original public API.</p>
+                <p><strong class="evidence-text">Evidence:</strong> The enhanced codebase demonstrates improved maintainability through reduced duplication, explicit constraint documentation, and predictable failure modes. The internal Result type enables comprehensive error handling while preserving the original public API.</p>
 
                 <h4>Outcome Alignment</h4>
                 <ul class="outcome-list">
@@ -349,6 +380,7 @@
                 <ul>
                     <li>Before: <a href="https://github.com/i-ekoul/CS320-Software-Testing-QA/tree/v-before-review" target="_blank">https://github.com/i-ekoul/CS320-Software-Testing-QA/tree/v-before-review</a></li>
                     <li>Enhanced: <a href="https://github.com/i-ekoul/CS320-Software-Testing-QA/tree/enhancement/m2-cs320-contactservice" target="_blank">https://github.com/i-ekoul/CS320-Software-Testing-QA/tree/enhancement/m2-cs320-contactservice</a></li>
+                    <li>Compare changes: <a href="https://github.com/i-ekoul/CS320-Software-Testing-QA/compare/v-before-review...enhancement/m2-cs320-contactservice" target="_blank">View diff on GitHub</a></li>
                 </ul>
 
                 <h4>Narrative</h4>
@@ -391,7 +423,7 @@
                 <h4>Before vs After vs Evidence</h4>
                 <p><strong>Before:</strong> The scene rendered static 3D objects without interactive selection capabilities. Users could view the scene but had no way to identify or interact with individual objects.</p>
                 <p><strong>After:</strong> Ray-based picking implementation enables deterministic object selection using slab-based ray-AABB intersection. The pickObjectId helper returns the nearest intersected object, with safeguards for edge cases and documentation for broad-phase acceleration strategies.</p>
-                <p><strong>Evidence:</strong> The implementation demonstrates correct geometric reasoning through robust edge-case handling. Trade-off notes document the O(n) per-pick complexity and outline uniform-grid traversal as a future optimization path for larger scenes, showing awareness of scalability considerations.</p>
+                <p><strong class="evidence-text">Evidence:</strong> The implementation demonstrates correct geometric reasoning through robust edge-case handling. Trade-off notes document the O(n) per-pick complexity and outline uniform-grid traversal as a future optimization path for larger scenes, showing awareness of scalability considerations.</p>
 
                 <h4>Outcome Alignment</h4>
                 <ul class="outcome-list">
@@ -405,6 +437,7 @@
                 <ul>
                     <li>Before: <a href="https://github.com/i-ekoul/CS-330/tree/v-before-review" target="_blank">https://github.com/i-ekoul/CS-330/tree/v-before-review</a></li>
                     <li>Enhanced: <a href="https://github.com/i-ekoul/CS-330/tree/enhancement/m2-cs330-picking" target="_blank">https://github.com/i-ekoul/CS-330/tree/enhancement/m2-cs330-picking</a></li>
+                    <li>Compare changes: <a href="https://github.com/i-ekoul/CS-330/compare/v-before-review...enhancement/m2-cs330-picking" target="_blank">View diff on GitHub</a></li>
                 </ul>
 
                 <h4 class="narrative-header">Narrative</h4>
@@ -448,7 +481,7 @@
                 <h4>Before vs After vs Evidence</h4>
                 <p><strong>Before:</strong> Queries executed without compound indexes, input validation was inconsistent, and error handling relied on exceptions or raw return values without structured responses.</p>
                 <p><strong>After:</strong> Idempotent compound-index creation optimizes common query paths, centralized validation ensures well-formed inputs before query execution, and standardized success/error dictionaries enable consistent failure handling. The explain_query helper supports performance verification.</p>
-                <p><strong>Evidence:</strong> The enhanced module demonstrates improved reliability through defensive input handling and structured error contracts. Index-aware design supports predictable query performance as the dataset scales, and the explain helper provides concrete evidence of optimization effectiveness.</p>
+                <p><strong class="evidence-text">Evidence:</strong> The enhanced module demonstrates improved reliability through defensive input handling and structured error contracts. Index-aware design supports predictable query performance as the dataset scales, and the explain helper provides concrete evidence of optimization effectiveness.</p>
 
                 <h4>Outcome Alignment</h4>
                 <ul class="outcome-list">
@@ -462,6 +495,7 @@
                 <ul>
                     <li>Before: <a href="https://github.com/i-ekoul/CS340-Animal-Shelter-Dashboard/tree/v-before-review" target="_blank">https://github.com/i-ekoul/CS340-Animal-Shelter-Dashboard/tree/v-before-review</a></li>
                     <li>Enhanced: <a href="https://github.com/i-ekoul/CS340-Animal-Shelter-Dashboard/tree/enhancement/m2-cs340-animal-shelter" target="_blank">https://github.com/i-ekoul/CS340-Animal-Shelter-Dashboard/tree/enhancement/m2-cs340-animal-shelter</a></li>
+                    <li>Compare changes: <a href="https://github.com/i-ekoul/CS340-Animal-Shelter-Dashboard/compare/v-before-review...enhancement/m2-cs340-animal-shelter" target="_blank">View diff on GitHub</a></li>
                 </ul>
 
                 <h4 class="narrative-header">Narrative</h4>
@@ -491,7 +525,7 @@
     </div>
     
     <footer>
-        <p>&copy; 2024-2025 Emmalie Cole</p>
+        <p>&copy; 2025 Emmalie Cole</p>
         <p>
             <a href="https://github.com/i-ekoul"><i class="fab fa-github" style="font-size: 30px;"></i></a>
             <a href="https://www.linkedin.com/in/es-cole/"><i class="fab fa-linkedin" style="font-size: 30px;"></i></a>
