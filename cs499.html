@@ -145,7 +145,6 @@
 
     .video-container + p a .youtube-text {
         font-weight: bold;
-        color: #ff0000;
     }
 
     .video-container + p a:hover .youtube-text {
@@ -197,12 +196,18 @@
     #enhancement-one .panel,
     #enhancement-two .panel,
     #enhancement-three .panel {
-        padding: 12px 18px;
+        padding: 0 18px 12px 18px;
         background-color: #fafafa;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease-out;
         box-sizing: border-box;
+    }
+
+    #enhancement-one .panel > *:first-child,
+    #enhancement-two .panel > *:first-child,
+    #enhancement-three .panel > *:first-child {
+        padding-top: 12px;
     }
 
     /* Before vs After vs Evidence Styling */
@@ -387,7 +392,7 @@
                     <li>Compare changes: <a href="https://github.com/i-ekoul/CS320-Software-Testing-QA/compare/v-before-review...enhancement/m2-cs320-contactservice" target="_blank">View diff on GitHub</a></li>
                 </ul>
 
-                <h4>Narrative</h4>
+                <h4 class="narrative-header">Narrative</h4>
                 <h4>Artifact description</h4>
                 <p>This artifact is the ContactService class from CS320, a Java service-layer component that manages Contact records in memory. Created as part of the CS320 course project submission and later enhanced during CS499 Milestone 2. In its original form, the service supported basic create, read, update, and delete operations using an in-memory map keyed by contact identifier, with lightweight validation embedded directly in the update logic.</p>
                 <h4>Justification and improvements</h4>
