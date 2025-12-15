@@ -178,9 +178,9 @@
             acc[i].addEventListener("click", function() {
                 this.classList.toggle("active");
                 var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
+                if (panel && panel.style.maxHeight) {
                     panel.style.maxHeight = null;
-                } else {
+                } else if (panel) {
                     panel.style.maxHeight = panel.scrollHeight + "px";
                 } 
             });
