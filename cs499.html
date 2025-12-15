@@ -37,25 +37,251 @@
         </ul>
     </nav>
 
-     <!-- text and photo formatting below for inside the about-container --> 
+     <!-- CS499 Page Specific Styling --> 
     <style>
-    .about-container {
-        display: flex;
-        align-items: center; /* Aligns items vertically in the center */
-        justify-content: flex-start; /* Aligns items horizontally, with text and image in line */
-        padding: 20px;
-    }
-    .profile-container {
-        margin-right: 20px; /* Adds space between the image and text */
-    }
-  
-         /* reduce space below the main header */
+    /* Reduce space below the main header */
     h2 {
-        margin-bottom: 10px; /* Reduce the space below the main header */
+        margin-bottom: 10px;
     }
 
-    .about-text {
-        margin-top: 0; /* Ensure no extra margin is added above the text */
+    /* Table of Contents Styling */
+    .toc {
+        background-color: #d9d9d9;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+        border-left: 4px solid #607f83;
+    }
+
+    .toc h3 {
+        margin-top: 0;
+        color: #333;
+    }
+
+    .toc ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .toc ul li {
+        margin: 10px 0;
+    }
+
+    .toc ul li a {
+        color: #675c56;
+        text-decoration: none;
+        padding: 8px 12px;
+        display: inline-block;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+
+    .toc ul li a:hover {
+        background-color: #607f83;
+        color: white;
+        transform: translateX(5px);
+    }
+
+    /* Section Styling Enhancements */
+    #cs499 section {
+        margin-bottom: 30px;
+        padding: 25px;
+    }
+
+    #cs499 section h3 {
+        color: #607f83;
+        border-bottom: 2px solid #607f83;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    #cs499 section h4 {
+        color: #675c56;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+    }
+
+    /* Video Container Styling */
+    .video-container {
+        text-align: center;
+        margin: 20px 0;
+        padding: 20px;
+        background-color: #f5f5f5;
+        border-radius: 8px;
+    }
+
+    .video-container iframe {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-container + p {
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .video-container + p a {
+        color: #607f83;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 16px;
+        border: 2px solid #607f83;
+        border-radius: 4px;
+        display: inline-block;
+        transition: all 0.3s ease;
+    }
+
+    .video-container + p a:hover {
+        background-color: #607f83;
+        color: white;
+    }
+
+    /* Enhancement Section Styling */
+    #enhancement-one,
+    #enhancement-two,
+    #enhancement-three {
+        border-left: 4px solid #607f83;
+        background-color: #fafafa;
+        padding: 0;
+    }
+
+    /* Accordion Button Styling for Enhancement Sections */
+    #enhancement-one .accordion,
+    #enhancement-two .accordion,
+    #enhancement-three .accordion {
+        background-color: #607f83;
+        color: white;
+        font-size: 1.2em;
+        font-weight: bold;
+        padding: 18px 20px;
+        width: 100%;
+        text-align: left;
+        border: none;
+        border-radius: 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin: 0;
+    }
+
+    #enhancement-one .accordion:hover,
+    #enhancement-two .accordion:hover,
+    #enhancement-three .accordion:hover,
+    #enhancement-one .accordion.active,
+    #enhancement-two .accordion.active,
+    #enhancement-three .accordion.active {
+        background-color: #4a6367;
+    }
+
+    /* Panel Styling for Enhancement Sections */
+    #enhancement-one .panel,
+    #enhancement-two .panel,
+    #enhancement-three .panel {
+        padding: 25px;
+        background-color: #fafafa;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+
+    /* Before vs After vs Evidence Styling */
+    #cs499 section h4 + p strong {
+        color: #607f83;
+        font-size: 1.05em;
+    }
+
+    #cs499 section p {
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+
+    /* Links Styling */
+    #cs499 section ul li a {
+        color: #607f83;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-bottom: 1px dotted #607f83;
+    }
+
+    #cs499 section ul li a:hover {
+        color: #f3a16d;
+        border-bottom: 1px solid #f3a16d;
+    }
+
+    /* List Styling */
+    #cs499 section ul {
+        margin: 15px 0;
+        padding-left: 25px;
+    }
+
+    #cs499 section ul li {
+        margin: 10px 0;
+        line-height: 1.6;
+        padding-left: 5px;
+    }
+
+    #cs499 section ul li::marker {
+        color: #607f83;
+    }
+
+
+    /* Skills List Styling */
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .skills-list li {
+        background-color: #e8e8e8;
+        padding: 8px 15px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        margin: 0;
+        display: inline-block;
+        transition: all 0.3s ease;
+    }
+
+    .skills-list li:hover {
+        background-color: #607f83;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Outcome List Styling */
+    .outcome-list li {
+        padding-left: 15px;
+        border-left: 3px solid #607f83;
+        margin-left: 10px;
+        margin-bottom: 12px;
+        background-color: #f9f9f9;
+        padding: 10px 15px;
+        border-radius: 4px;
+    }
+
+    /* Narrative Header Styling */
+    .narrative-header {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 2px solid #e0e0e0;
+    }
+
+    /* Smooth Scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Responsive Video */
+    @media (max-width: 768px) {
+        .video-container iframe {
+            width: 100%;
+            height: 250px;
+        }
     }
     </style>
     
@@ -94,11 +320,12 @@
 
             <!-- Enhancement One — Category One (CS320) -->
             <section id="enhancement-one">
-                <h3>Enhancement One — Category One (CS320)</h3>
+                <button class="accordion">Enhancement One — Category One (CS320)</button>
+                <div class="panel">
                 <p>This artifact demonstrates service-layer design and input validation practices through enhancements to the ContactService class. The Milestone Two improvements focus on centralized validation helpers, guarded update operations, and structured Result/ErrorCode semantics for predictable error handling. The work showcases maintainable service-layer architecture and consistent constraint enforcement across CRUD operations.</p>
                 
                 <h4>Skills Demonstrated</h4>
-                <ul>
+                <ul class="skills-list">
                     <li>Service-Layer Design</li>
                     <li>Input Validation & Constraint Enforcement</li>
                     <li>Structured Error Handling</li>
@@ -111,7 +338,7 @@
                 <p><strong>Evidence:</strong> The enhanced codebase demonstrates improved maintainability through reduced duplication, explicit constraint documentation, and predictable failure modes. The internal Result type enables comprehensive error handling while preserving the original public API.</p>
 
                 <h4>Outcome Alignment</h4>
-                <ul>
+                <ul class="outcome-list">
                     <li>Design & Software Engineering: Centralized validation and structured results improve code organization and maintainability</li>
                     <li>Algorithms & Data Structures: Efficient constraint checking and guarded update logic demonstrate algorithmic thinking</li>
                     <li>Software Development Lifecycle: Refactoring approach preserves backward compatibility while improving robustness</li>
@@ -125,10 +352,9 @@
                 </ul>
 
                 <h4>Narrative</h4>
-                <h5>CS499 - CS320 Artifact</h5>
-                <h5>Artifact description</h5>
+                <h4>Artifact description</h4>
                 <p>This artifact is the ContactService class from CS320, a Java service-layer component that manages Contact records in memory. Created as part of the CS320 course project submission and later enhanced during CS499 Milestone 2. In its original form, the service supported basic create, read, update, and delete operations using an in-memory map keyed by contact identifier, with lightweight validation embedded directly in the update logic.</p>
-                <h5>Justification and improvements</h5>
+                <h4>Justification and improvements</h4>
                 <p>I selected this artifact because it is small enough to review quickly, but it exposes several real-world quality concerns that are directly relevant to software engineering practice: consistent validation, predictable error handling, and maintainable service-layer design.</p>
                 <ul>
                     <li>Added explicit class invariants in documentation (identifier uniqueness, name-length constraints, ten-digit phone constraint, and address length constraint).</li>
@@ -137,24 +363,25 @@
                     <li>Refactored update logic to be guarded: any provided non-null field that violates constraints fails the operation rather than silently ignoring invalid updates.</li>
                 </ul>
                 <p>These changes improve readability, reduce duplication, and make the service behavior easier to test and reason about under both normal and edge-case inputs.</p>
-                <h5>Course outcomes coverage</h5>
+                <h4>Course outcomes coverage</h4>
                 <p>In Milestone 2, I planned to use this artifact to demonstrate core software engineering outcomes related to design quality, correctness, and professional communication. With the Milestone 2 enhancements, I met the primary intent of that plan for service-layer design and validation consistency.</p>
                 <ul>
                     <li>Outcomes achieved so far: improved design clarity through centralized validation and structured results; strengthened correctness by preventing partial or silent invalid updates; improved documentation of constraints and expected behavior.</li>
                     <li>Outcomes remaining: expand automated tests to fully evidence boundary conditions and error cases (for example, duplicate identifiers, invalid phone formats, and over-length fields) and to quantify coverage improvements.</li>
                 </ul>
                 <p>My outcome-coverage plan remains the same overall, but I now have a clearer, test-driven path for demonstrating evidence of correctness rather than relying on informal reasoning.</p>
-                <h5>Reflection</h5>
+                <h4>Reflection</h4>
                 <p>The primary learning from this enhancement was how quickly small service classes become difficult to maintain when validation logic is scattered across methods. By isolating validation rules and introducing a structured result model, I gained a better understanding of how to make behavior explicit and testable without changing the public interface used by dependent code. A key challenge was preserving the original method signatures and behavior expected by the course project while still improving robustness. Addressing that constraint pushed me to use internal helper methods and adapters (boolean-returning public methods delegating to result-returning internal methods), which is a pattern I can apply in larger codebases when refactoring legacy interfaces.</p>
             </section>
 
             <!-- Enhancement Two — Category Two (CS330) -->
             <section id="enhancement-two">
-                <h3>Enhancement Two — Category Two (CS330)</h3>
+                <button class="accordion">Enhancement Two — Category Two (CS330)</button>
+                <div class="panel">
                 <p>This artifact showcases 3D graphics programming and computational geometry through the implementation of ray-based object picking using axis-aligned bounding box (AABB) slab intersection. The Milestone Two enhancement adds interactive selection capabilities that return the closest intersected object identifier, enabling deterministic and reproducible picking behavior. The implementation includes robust handling of edge cases (parallel rays, rays inside volumes) and documents trade-offs for scaling to larger scenes.</p>
                 
                 <h4>Skills Demonstrated</h4>
-                <ul>
+                <ul class="skills-list">
                     <li>3D Graphics Programming</li>
                     <li>Computational Geometry Algorithms</li>
                     <li>Ray-Casting & Intersection Testing</li>
@@ -167,7 +394,7 @@
                 <p><strong>Evidence:</strong> The implementation demonstrates correct geometric reasoning through robust edge-case handling. Trade-off notes document the O(n) per-pick complexity and outline uniform-grid traversal as a future optimization path for larger scenes, showing awareness of scalability considerations.</p>
 
                 <h4>Outcome Alignment</h4>
-                <ul>
+                <ul class="outcome-list">
                     <li>Algorithms & Data Structures: Slab intersection algorithm demonstrates geometric algorithm implementation and complexity analysis</li>
                     <li>Design & Software Engineering: Self-contained picking implementation shows modular design without disrupting existing architecture</li>
                     <li>Computer Science Foundations: Mathematical correctness in coordinate transformations and intersection calculations</li>
@@ -180,11 +407,10 @@
                     <li>Enhanced: <a href="https://github.com/i-ekoul/CS-330/tree/enhancement/m2-cs330-picking" target="_blank">https://github.com/i-ekoul/CS-330/tree/enhancement/m2-cs330-picking</a></li>
                 </ul>
 
-                <h4>Narrative</h4>
-                <h5>CS499 - CS330 Artifact</h5>
-                <h5>Artifact description</h5>
+                <h4 class="narrative-header">Narrative</h4>
+                <h4>Artifact description</h4>
                 <p>This artifact is the Source/MainCode.cpp implementation from CS330, an OpenGL-based graphics programming project. It was originally created as part of the CS330 coursework and was later enhanced during CS499 Milestone 2. The project renders a three-dimensional scene using the provided course architecture. The enhanced portion focuses on adding a ray-based picking capability to support selecting objects in the scene.</p>
-                <h5>Justification and improvements</h5>
+                <h4>Justification and improvements</h4>
                 <p>I selected this artifact because it showcases applied computational graphics and systems-level reasoning: mathematical correctness, data-structure planning, and performance considerations in an interactive rendering pipeline.</p>
                 <ul>
                     <li>Added minimal Ray and axis-aligned bounding box (AABB) types to support a deterministic picking pathway.</li>
@@ -193,24 +419,26 @@
                     <li>Documented a broad-phase acceleration plan (uniform-grid traversal) to show how the design can scale from a small scene to larger numbers of objects.</li>
                 </ul>
                 <p>These improvements strengthen the artifact by moving it beyond static rendering into interaction design and by demonstrating how correctness and performance planning co-exist in graphics software.</p>
-                <h5>Course outcomes coverage</h5>
+                <h4>Course outcomes coverage</h4>
                 <p>In Milestone 1, I planned for this artifact to demonstrate algorithmic reasoning and software engineering design in a mathematically intensive domain. The Milestone 2 enhancements directly supports that plan by implementing a clear algorithm (slab intersection) and documenting the next-step optimization strategy.</p>
                 <ul>
                     <li>Outcomes achieved so far: demonstrated algorithmic implementation and careful edge-case handling; improved design readability through small, well-scoped types and functions; strengthened maintainability through thorough in-code documentation.</li>
                     <li>Outcomes remaining: add lightweight test scaffolding or reproducible evidence (for example, a documented set of sample rays and expected hit identifiers) to more explicitly demonstrate correctness to reviewers who cannot easily run the graphical project.</li>
                 </ul>
                 <p>My outcome-coverage plan remains consistent, but the enhancement highlighted the importance of including reviewer-friendly evidence when artifacts are interactive and environment-dependent.</p>
-                <h5>Reflection</h5>
+                <h4>Reflection</h4>
                 <p>The key learning in this enhancement was translating geometric reasoning into defensible, readable code. The slab method is conceptually simple, but robust handling of parallel rays and numeric edge cases requires disciplined checks and clear invariants. The primary challenge was balancing correctness with minimal intrusion into an existing course architecture. Implementing picking in a self-contained manner and documenting a broad-phase plan provided a clean enhancement that demonstrates growth without destabilizing the original rendering workflow.</p>
+                </div>
             </section>
 
             <!-- Enhancement Three — Category Three (CS340) -->
             <section id="enhancement-three">
-                <h3>Enhancement Three — Category Three (CS340)</h3>
+                <button class="accordion">Enhancement Three — Category Three (CS340)</button>
+                <div class="panel">
                 <p>This artifact demonstrates database optimization and data-access layer design through enhancements to the animal_shelter.py module. The Milestone Two improvements focus on compound indexing for query performance, input normalization and validation helpers, structured result payloads for consistent error handling, and an explain_query helper for performance verification. The work showcases production-ready database practices and maintainable data-access interfaces.</p>
                 
                 <h4>Skills Demonstrated</h4>
-                <ul>
+                <ul class="skills-list">
                     <li>Database Optimization & Indexing</li>
                     <li>Data-Access Layer Design</li>
                     <li>Input Validation & Normalization</li>
@@ -223,7 +451,7 @@
                 <p><strong>Evidence:</strong> The enhanced module demonstrates improved reliability through defensive input handling and structured error contracts. Index-aware design supports predictable query performance as the dataset scales, and the explain helper provides concrete evidence of optimization effectiveness.</p>
 
                 <h4>Outcome Alignment</h4>
-                <ul>
+                <ul class="outcome-list">
                     <li>Database Systems: Compound indexing and query optimization demonstrate database performance awareness</li>
                     <li>Design & Software Engineering: Structured result payloads and validation helpers improve interface design and maintainability</li>
                     <li>Software Development Lifecycle: Performance verification tools support evidence-based optimization</li>
@@ -236,11 +464,10 @@
                     <li>Enhanced: <a href="https://github.com/i-ekoul/CS340-Animal-Shelter-Dashboard/tree/enhancement/m2-cs340-animal-shelter" target="_blank">https://github.com/i-ekoul/CS340-Animal-Shelter-Dashboard/tree/enhancement/m2-cs340-animal-shelter</a></li>
                 </ul>
 
-                <h4>Narrative</h4>
-                <h5>CS499 - CS340 Artifact</h5>
-                <h5>Artifact description</h5>
+                <h4 class="narrative-header">Narrative</h4>
+                <h4>Artifact description</h4>
                 <p>This artifact is the animal_shelter.py data-access layer from CS340, written in Python and designed to support a MongoDB-backed dashboard for an animal shelter dataset. Originally created for the CS340 project and was later enhanced during CS499 Milestone 4. The module provides create, read, update, and delete operations against a MongoDB collection and is consumed by the dashboard layer to retrieve filtered views of animal records.</p>
-                <h5>Justification and improvements</h5>
+                <h4>Justification and improvements</h4>
                 <p>I selected this artifact because it demonstrates full-stack database fluency at the data-access boundary: query construction, performance considerations, and defensive handling of user-driven filters. These are directly transferable skills for production applications.</p>
                 <ul>
                     <li>Added an idempotent compound-index creation step for the most common query path (status, animal_type, and intake_date descending) to support predictable query performance.</li>
@@ -249,15 +476,16 @@
                     <li>Added an explain_query helper to support verifying index usage and query planning when evaluating performance.</li>
                 </ul>
                 <p>Collectively, these improvements strengthen reliability (fewer unhandled failure modes), maintainability (one validation path), and scalability (index-aware query design).</p>
-                <h5>Course outcomes coverage</h5>
+                <h4>Course outcomes coverage</h4>
                 <p>In Milestone 2, I planned to use this artifact to emphasize database competency and secure, maintainable interfaces between the UI and the persistence layer. The Milestone 4 enhancement aligns strongly with that plan because it operationalizes performance and validation concerns rather than describing them abstractly.</p>
                 <ul>
                     <li>Outcomes achieved so far: demonstrated database optimization awareness through compound indexing and explain-based verification; improved software design by standardizing structured responses and validation; improved professionalism by documenting assumptions and constraints within the code.</li>
                     <li>Outcomes remaining: capture and include concrete evidence (for example, an explain output excerpt or a brief benchmark note) showing the index improves the intended query path, and extend validation tests for a broader set of malformed inputs.</li>
                 </ul>
                 <p>No major updates are needed to my outcome-coverage plan, but the enhancement clarified the specific evidence I will include to substantiate performance claims.</p>
-                <h5>Reflection</h5>
+                <h4>Reflection</h4>
                 <p>This enhancement reinforced that database code quality is not only about correctness, but also about predictable behavior under imperfect inputs and about performance as the dataset grows. Designing the module to return structured results and to validate inputs early reduced the coupling between the dashboard and the database layer. The main challenge was improving robustness without turning a straightforward educational example into an over-engineered framework. Focusing on a small set of high-impact changes, indexing, validation, and consistent error contracts, helped keep the design disciplined and aligned with real-world expectations.</p>
+                </div>
             </section>
         </section>
     </div>
