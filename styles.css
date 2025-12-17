@@ -28,7 +28,7 @@ header {
 
 header::before {
     content: "";
-    background-image: url('banner.jpg');
+    background-image: url('banner.png');
     background-size: cover;
     background-position: center;
     position: absolute;
