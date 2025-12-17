@@ -22,8 +22,7 @@ header {
     text-align: center;
     color: white;
     overflow: hidden;
-    height: 480px; /* Adjusted height */
-    padding-bottom: none; /* Adjust or remove padding-bottom */
+    padding: 1.5em 0 1em; /* tighter vertical space so nav sits closer */
 }
 
 header::before {
@@ -42,14 +41,17 @@ header::before {
 
 header .banner-content img {
     width: 75%;
-    max-height: 83%; /* Ensure the main banner fits within the header height */
-    object-fit: cover; /* Maintain aspect ratio and cover the area */
+    height: auto;
+    object-fit: cover; /* Maintain aspect ratio */
     opacity: 1; /* Ensure the main banner is fully visible */
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* add depth so header area feels less empty */
 }
 
 header .banner-content {
     position: relative;
-    padding: 2em 0; /* Remove padding */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .content {
