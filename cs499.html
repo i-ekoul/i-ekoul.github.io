@@ -278,16 +278,25 @@
     .outcome-list {
         list-style: none;
         padding-left: 0;
+        margin-top: 12px;
     }
 
     .outcome-list li {
         padding-left: 15px;
         border-left: 3px solid #607f83;
         margin-left: 0;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         background-color: #f9f9f9;
         padding: 10px 15px;
         border-radius: 4px;
+        font-size: 0.95em;
+    }
+
+    .outcome-list li strong {
+        display: block;
+        color: #607f83;
+        font-weight: 700;
+        margin-bottom: 4px;
     }
 
     /* Narrative Header Styling */
@@ -427,20 +436,22 @@
                 <button class="accordion">Evidence Gallery</button>
                 <div class="panel">
                     <div class="evidence-gallery">
-                        <!-- Add one or more evidence images here, for example:
-                        <img src="cs320-evidence1.png" alt="CS320 enhancement evidence 1">
-                        <img src="cs320-evidence2.png" alt="CS320 enhancement evidence 2">
+                        <!-- Add one or more evidence cards here, for example:
+                        <div class="evidence-item">
+                            <img class="evidence-image" src="cs320-evidence1.png" alt="CS320 enhancement evidence 1">
+                            <p class="evidence-caption">Short caption describing what this evidence shows.</p>
+                        </div>
                         -->
-                        <p>Visual evidence (screenshots, diagrams, or snippets) for this enhancement will appear here.</p>
+                        <p class="evidence-caption">Visual evidence (screenshots, diagrams, or snippets) for this enhancement will appear here.</p>
                     </div>
                 </div>
 
                 <h4>Outcome Alignment</h4>
                 <ul class="outcome-list">
-                    <li>Design & Software Engineering: Centralized validation and structured results improve code organization and maintainability</li>
-                    <li>Algorithms & Data Structures: Efficient constraint checking and guarded update logic demonstrate algorithmic thinking</li>
-                    <li>Software Development Lifecycle: Refactoring approach preserves backward compatibility while improving robustness</li>
-                    <li>Communication: Clear documentation of invariants and error codes improves code readability and team collaboration</li>
+                    <li><strong>Design & Software Engineering:</strong> Centralized validation and structured results improve code organization and maintainability</li>
+                    <li><strong>Algorithms & Data Structures:</strong> Efficient constraint checking and guarded update logic demonstrate algorithmic thinking</li>
+                    <li><strong>Software Development Lifecycle:</strong> Refactoring approach preserves backward compatibility while improving robustness</li>
+                    <li><strong>Communication:</strong> Clear documentation of invariants and error codes improves code readability and team collaboration</li>
                 </ul>
 
                 <h4>Links</h4>
@@ -496,20 +507,22 @@
                 <button class="accordion">Evidence Gallery</button>
                 <div class="panel">
                     <div class="evidence-gallery">
-                        <!-- Add one or more evidence images here, for example:
-                        <img src="cs330-evidence1.png" alt="CS330 enhancement evidence 1">
-                        <img src="cs330-evidence2.png" alt="CS330 enhancement evidence 2">
+                        <!-- Add one or more evidence cards here, for example:
+                        <div class="evidence-item">
+                            <img class="evidence-image" src="cs330-evidence1.png" alt="CS330 enhancement evidence 1">
+                            <p class="evidence-caption">Short caption describing what this evidence shows.</p>
+                        </div>
                         -->
-                        <p>Visual evidence (screenshots, diagrams, or snippets) for this enhancement will appear here.</p>
+                        <p class="evidence-caption">Visual evidence (screenshots, diagrams, or snippets) for this enhancement will appear here.</p>
                     </div>
                 </div>
 
                 <h4>Outcome Alignment</h4>
                 <ul class="outcome-list">
-                    <li>Algorithms & Data Structures: Slab intersection algorithm demonstrates geometric algorithm implementation and complexity analysis</li>
-                    <li>Design & Software Engineering: Self-contained picking implementation shows modular design without disrupting existing architecture</li>
-                    <li>Computer Science Foundations: Mathematical correctness in coordinate transformations and intersection calculations</li>
-                    <li>Communication: In-code documentation and trade-off notes demonstrate professional technical writing</li>
+                    <li><strong>Algorithms & Data Structures:</strong> Slab intersection algorithm demonstrates geometric algorithm implementation and complexity analysis</li>
+                    <li><strong>Design & Software Engineering:</strong> Self-contained picking implementation shows modular design without disrupting existing architecture</li>
+                    <li><strong>Computer Science Foundations:</strong> Mathematical correctness in coordinate transformations and intersection calculations</li>
+                    <li><strong>Communication:</strong> In-code documentation and trade-off notes demonstrate professional technical writing</li>
                 </ul>
 
                 <h4>Links</h4>
@@ -591,10 +604,10 @@
 
                 <h4>Outcome Alignment</h4>
                 <ul class="outcome-list">
-                    <li>Database Systems: Compound indexing and query optimization demonstrate database performance awareness</li>
-                    <li>Design & Software Engineering: Structured result payloads and validation helpers improve interface design and maintainability</li>
-                    <li>Software Development Lifecycle: Performance verification tools support evidence-based optimization</li>
-                    <li>Communication: Documentation of indexing strategy and validation constraints demonstrates professional database practices</li>
+                    <li><strong>Database Systems:</strong> Compound indexing and query optimization demonstrate database performance awareness</li>
+                    <li><strong>Design & Software Engineering:</strong> Structured result payloads and validation helpers improve interface design and maintainability</li>
+                    <li><strong>Software Development Lifecycle:</strong> Performance verification tools support evidence-based optimization</li>
+                    <li><strong>Communication:</strong> Documentation of indexing strategy and validation constraints demonstrates professional database practices</li>
                 </ul>
 
                 <h4>Links</h4>

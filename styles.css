@@ -273,6 +273,20 @@ footer a:hover {
     animation-duration: 0.6s;
 }
 
+/* Modal caption styling for large evidence / degree images */
+#caption {
+    margin: 12px auto 40px;
+    width: 80%;
+    max-width: 700px;
+    color: #f1f1f1;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
 @keyframes zoom {
     from {transform:scale(0)} 
     to {transform:scale(1)}
