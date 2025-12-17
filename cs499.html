@@ -323,6 +323,26 @@
             height: 300px;
         }
     }
+
+    /* Evidence image gallery inside accordion panels */
+    .evidence-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 10px;
+    }
+
+    .evidence-gallery img {
+        max-width: 220px;
+        width: 100%;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .evidence-caption {
+        font-size: 0.9em;
+        margin-top: 4px;
+    }
     </style>
     
      <div class="content">
@@ -378,6 +398,18 @@
                 <p><strong>Before:</strong> Validation logic was scattered across methods, update operations could silently ignore invalid inputs, and error handling relied on boolean returns without structured error information.</p>
                 <p><strong>After:</strong> Centralized validation helpers enforce constraints consistently, guarded updates fail operations when constraints are violated, and structured Result/ErrorCode types provide clear error semantics without exposing exceptions.</p>
                 <p><strong class="evidence-text">Evidence:</strong> The enhanced codebase demonstrates improved maintainability through reduced duplication, explicit constraint documentation, and predictable failure modes. The internal Result type enables comprehensive error handling while preserving the original public API.</p>
+
+                <!-- Evidence Image Accordion -->
+                <button class="accordion">Evidence Gallery</button>
+                <div class="panel">
+                    <div class="evidence-gallery">
+                        <!-- Add one or more evidence images here, for example:
+                        <img src="cs320-evidence1.png" alt="CS320 enhancement evidence 1">
+                        <img src="cs320-evidence2.png" alt="CS320 enhancement evidence 2">
+                        -->
+                        <p>Visual evidence (screenshots, diagrams, or snippets) for this enhancement will appear here.</p>
+                    </div>
+                </div>
 
                 <h4>Outcome Alignment</h4>
                 <ul class="outcome-list">
@@ -436,6 +468,18 @@
                 <p><strong>After:</strong> Ray-based picking implementation enables deterministic object selection using slab-based ray-AABB intersection. The pickObjectId helper returns the nearest intersected object, with safeguards for edge cases and documentation for broad-phase acceleration strategies.</p>
                 <p><strong class="evidence-text">Evidence:</strong> The implementation demonstrates correct geometric reasoning through robust edge-case handling. Trade-off notes document the O(n) per-pick complexity and outline uniform-grid traversal as a future optimization path for larger scenes, showing awareness of scalability considerations.</p>
 
+                <!-- Evidence Image Accordion -->
+                <button class="accordion">Evidence Gallery</button>
+                <div class="panel">
+                    <div class="evidence-gallery">
+                        <!-- Add one or more evidence images here, for example:
+                        <img src="cs330-evidence1.png" alt="CS330 enhancement evidence 1">
+                        <img src="cs330-evidence2.png" alt="CS330 enhancement evidence 2">
+                        -->
+                        <p>Visual evidence (screenshots, diagrams, or snippets) for this enhancement will appear here.</p>
+                    </div>
+                </div>
+
                 <h4>Outcome Alignment</h4>
                 <ul class="outcome-list">
                     <li>Algorithms & Data Structures: Slab intersection algorithm demonstrates geometric algorithm implementation and complexity analysis</li>
@@ -493,6 +537,33 @@
                 <p><strong>Before:</strong> Queries executed without compound indexes, input validation was inconsistent, and error handling relied on exceptions or raw return values without structured responses.</p>
                 <p><strong>After:</strong> Idempotent compound-index creation optimizes common query paths, centralized validation ensures well-formed inputs before query execution, and standardized success/error dictionaries enable consistent failure handling. The explain_query helper supports performance verification.</p>
                 <p><strong class="evidence-text">Evidence:</strong> The enhanced module demonstrates improved reliability through defensive input handling and structured error contracts. Index-aware design supports predictable query performance as the dataset scales, and the explain helper provides concrete evidence of optimization effectiveness.</p>
+
+                <!-- Evidence Image Accordion -->
+                <button class="accordion">Evidence Gallery</button>
+                <div class="panel">
+                    <div class="evidence-gallery">
+                        <div class="evidence-item">
+                            <img src="CS340_evidence_01_compound_index_selectstring.jpg" alt="Compound index on status, animal_type, and intake_date">
+                            <p class="evidence-caption">The enhanced module creates an idempotent compound index on status, animal_type, and intake_date to optimize the most common query path.</p>
+                        </div>
+                        <div class="evidence-item">
+                            <img src="CS340_evidence_02_normalization_helpers.jpg" alt="Centralized normalization helpers for key fields">
+                            <p class="evidence-caption">Centralized normalization helpers coerce and validate key fields (such as status, type, limit, and dates) before any database operation is performed.</p>
+                        </div>
+                        <div class="evidence-item">
+                            <img src="CS340_evidence_03_validation_and_error_contract.jpg" alt="Structured success and error dictionaries">
+                            <p class="evidence-caption">The module enforces a consistent contract for outcomes using structured success and error dictionaries, improving reliability and UI-safe error handling.</p>
+                        </div>
+                        <div class="evidence-item">
+                            <img src="CS340_evidence_04_structured_create_and_diffstat.jpg" alt="Structured create results and diff summary">
+                            <p class="evidence-caption">The create flow was refactored to return structured results, and the diff summary shows the enhancement scope was intentional and contained to the data-access layer.</p>
+                        </div>
+                        <div class="evidence-item">
+                            <img src="CS340_evidence_05_explain_query_helper.jpg" alt="Explain query helper for MongoDB">
+                            <p class="evidence-caption">An explain_query helper is included to support query-plan inspection and index verification when a MongoDB environment is available.</p>
+                        </div>
+                    </div>
+                </div>
 
                 <h4>Outcome Alignment</h4>
                 <ul class="outcome-list">
