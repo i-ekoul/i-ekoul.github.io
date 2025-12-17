@@ -7,7 +7,7 @@ body {
 }
 
 /* Ensure consistency across navigation, header, footer, sections, buttons, and accordions */
-nav ul li a 
+nav ul li a,
 header,
 footer,
 section,
@@ -70,8 +70,6 @@ header .banner-content {
     height: auto; /* Adjust height */
 }
 
-}
-
 .about-text {
     flex: 1;
 }
@@ -98,6 +96,11 @@ nav ul li a {
     border-radius: 4px;
     background-color: #607f83;
     transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Keep nav button text consistent even after visiting links */
+nav ul li a:visited {
+    color: white;
 }
 
 nav ul li a:hover {
