@@ -168,10 +168,33 @@ section {
     color: #607f83;
 }
 
+#projects .projects-subheading {
+    color: #333;
+}
+
 .project-dot {
     color: #f3a16d;
     margin-right: 6px;
     font-weight: bold;
+}
+
+/* Education page colors */
+#education p strong {
+    color: #607f83;
+}
+
+.edu-year {
+    color: #f3a16d;
+}
+
+/* Generic accent text helpers */
+.accent-orange {
+    color: #f3a16d;
+    font-weight: 700;
+}
+
+.teal-text {
+    color: #607f83;
 }
 
 footer {
@@ -226,6 +249,60 @@ footer a:hover {
     margin-bottom: 10px;
 }
 
+/* Skills / Experience / Education accordions styled to match site palette */
+#skills .accordion,
+#experience .accordion,
+#education .accordion {
+    background-color: #607f83;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    font-weight: 600;
+}
+
+#skills .accordion:hover,
+#skills .accordion.active,
+#experience .accordion:hover,
+#experience .accordion.active,
+#education .accordion:hover,
+#education .accordion.active {
+    background-color: #4a6367;
+    color: white;
+}
+
+#skills .panel,
+#experience .panel,
+#education .panel {
+    background-color: #fafafa;
+    border-left: 4px solid #607f83;
+    border-radius: 0 0 4px 4px;
+}
+
+/* Badge-style skills inside skills accordions */
+#skills .skill-badges {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#skills .skill-badges li {
+    background-color: #f5f5f5;
+    color: #607f83;
+    border: 2px solid #607f83;
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+#skills .skill-badges li:hover {
+    background-color: #607f83;
+    color: #ffffff;
+}
+
 .certification, .degree, .badge {
     margin: 10px 0;
 }
@@ -245,25 +322,28 @@ footer a:hover {
     opacity: 0.7;
 }
 
-/* Accordion Style for the experience section */
-#experience .sub-accordion {
+/* Accordion Style for the experience section sub-links */
+#experience .sub-accordion,
+#education .sub-accordion {
     display: block;
-    background-color: #eee;
-    color: #444;
+    background-color: #607f83;
+    color: white;
     cursor: pointer;
-    padding: 18px;
+    padding: 12px 16px;
     text-align: left;
     text-decoration: none;
     font-size: 15px;
-    transition: 0.4s;
-    margin-top: 10px;
+    transition: 0.3s;
+    margin-top: 8px;
     border: none;
     outline: none;
     width: 100%;
+    border-radius: 4px;
 }
 
-#experience .sub-accordion:hover {
-    background-color: #ccc;
+#experience .sub-accordion:hover,
+#education .sub-accordion:hover {
+    background-color: #4a6367;
 }
 
     
