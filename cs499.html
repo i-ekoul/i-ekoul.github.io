@@ -44,44 +44,69 @@
         margin-bottom: 10px;
     }
 
-    /* Table of Contents Styling */
+    /* Table of Contents Styling - vertical numbered flow */
     .toc {
-        background-color: #d9d9d9;
-        padding: 20px;
+        background-color: #f5f5f5;
+        padding: 20px 24px;
         border-radius: 8px;
         margin: 20px 0;
-        border-left: 4px solid #607f83;
+        border: 1px solid #d0d0d0;
     }
 
     .toc h3 {
         margin-top: 0;
+        margin-bottom: 16px;
         color: #333;
     }
 
-    .toc ul {
+    .toc-list {
         list-style: none;
+        margin: 0;
         padding-left: 0;
+        position: relative;
     }
 
-    .toc ul li {
-        margin: 10px 0;
+    .toc-list::before {
+        content: "";
+        position: absolute;
+        left: 22px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: #c3d0d2;
     }
 
-    .toc ul li a {
-        color: white;
-        text-decoration: none;
-        padding: 10px 20px;
-        display: inline-block;
-        border-radius: 4px;
-        border: 2px solid #607f83;
+    .toc-item {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        margin-bottom: 14px;
+        position: relative;
+    }
+
+    .toc-step {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
         background-color: #607f83;
-        transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        flex-shrink: 0;
+        z-index: 1;
     }
 
-    .toc ul li a:hover {
-        background-color: #d9d9d9;
+    .toc-body a {
+        color: #607f83;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .toc-body a:hover {
         color: #f3a16d;
-        border-color: #607f83;
+        text-decoration: underline;
     }
 
     /* Section Styling Enhancements */
@@ -265,13 +290,15 @@
     }
 
     .skills-list li {
-        background-color: #607f83;
+        background-color: #f3a16d;           /* orange accent to distinguish CS499 skills */
         color: white;
-        padding: 8px 15px;
-        border-radius: 4px;
-        border: 2px solid #607f83;
+        padding: 6px 16px;
+        border-radius: 999px;                /* pill shape */
+        border: 2px solid #f3a16d;
         margin: 0;
         display: inline-block;
+        font-size: 0.9em;
+        font-weight: 600;
     }
 
     /* Outcome List Styling */
@@ -385,12 +412,37 @@
             <!-- Table of Contents -->
             <div class="toc">
                 <h3>Table of Contents</h3>
-                <ul>
-                    <li><a href="#self-assessment">Professional Self-Assessment</a></li>
-                    <li><a href="#code-review">Code Review Video</a></li>
-                    <li><a href="#enhancement-one">Enhancement One — Software Design and Engineering (CS320)</a></li>
-                    <li><a href="#enhancement-two">Enhancement Two — Algorithms and Data Structure (CS330)</a></li>
-                    <li><a href="#enhancement-three">Enhancement Three — Databases (CS340)</a></li>
+                <ul class="toc-list">
+                    <li class="toc-item">
+                        <div class="toc-step">1</div>
+                        <div class="toc-body">
+                            <a href="#self-assessment">Professional Self-Assessment</a>
+                        </div>
+                    </li>
+                    <li class="toc-item">
+                        <div class="toc-step">2</div>
+                        <div class="toc-body">
+                            <a href="#code-review">Code Review Video</a>
+                        </div>
+                    </li>
+                    <li class="toc-item">
+                        <div class="toc-step">3</div>
+                        <div class="toc-body">
+                            <a href="#enhancement-one">Enhancement One — Software Design and Engineering (CS320)</a>
+                        </div>
+                    </li>
+                    <li class="toc-item">
+                        <div class="toc-step">4</div>
+                        <div class="toc-body">
+                            <a href="#enhancement-two">Enhancement Two — Algorithms and Data Structure (CS330)</a>
+                        </div>
+                    </li>
+                    <li class="toc-item">
+                        <div class="toc-step">5</div>
+                        <div class="toc-body">
+                            <a href="#enhancement-three">Enhancement Three — Databases (CS340)</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
 
@@ -648,6 +700,11 @@
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">
         <div id="caption"></div>
+        <div class="modal-zoom-controls">
+            <button id="zoomOut">-</button>
+            <button id="zoomReset">Reset</button>
+            <button id="zoomIn">+</button>
+        </div>
     </div>
     
     <footer>
@@ -682,12 +739,19 @@
         var captionText = document.getElementById("caption");
         var evidenceImgs = document.getElementsByClassName("evidence-image");
 
+        var zoomLevel = 1;
+        function applyZoom() {
+            modalImg.style.transform = "scale(" + zoomLevel + ")";
+        }
+
         for (var j = 0; j < evidenceImgs.length; j++) {
             evidenceImgs[j].addEventListener("click", function() {
                 modal.style.display = "block";
                 modalImg.src = this.src;
                 var captionEl = this.nextElementSibling;
                 captionText.innerHTML = captionEl ? captionEl.innerText : this.alt;
+                zoomLevel = 1;
+                applyZoom();
             });
         }
 
@@ -695,6 +759,26 @@
         if (span) {
             span.onclick = function() {
                 modal.style.display = "none";
+            };
+        }
+
+        // Zoom controls for evidence modal
+        var zoomInBtn = document.getElementById("zoomIn");
+        var zoomOutBtn = document.getElementById("zoomOut");
+        var zoomResetBtn = document.getElementById("zoomReset");
+
+        if (zoomInBtn && zoomOutBtn && zoomResetBtn) {
+            zoomInBtn.onclick = function() {
+                zoomLevel = Math.min(zoomLevel + 0.25, 3);
+                applyZoom();
+            };
+            zoomOutBtn.onclick = function() {
+                zoomLevel = Math.max(zoomLevel - 0.25, 0.5);
+                applyZoom();
+            };
+            zoomResetBtn.onclick = function() {
+                zoomLevel = 1;
+                applyZoom();
             };
         }
     </script>

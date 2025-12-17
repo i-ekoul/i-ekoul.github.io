@@ -266,6 +266,7 @@ footer a:hover {
     display: block;
     width: 80%;
     max-width: 700px;
+    transition: transform 0.2s ease-in-out;
 }
 
 .modal-content, #caption {
@@ -285,6 +286,28 @@ footer a:hover {
     background-color: rgba(0, 0, 0, 0.6);
     padding: 8px 12px;
     border-radius: 4px;
+}
+
+/* Zoom controls for modal images */
+.modal-zoom-controls {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 8px auto 24px;
+}
+
+.modal-zoom-controls button {
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    color: #333;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.modal-zoom-controls button:hover {
+    background-color: #e0e0e0;
 }
 
 @keyframes zoom {
