@@ -97,7 +97,7 @@ nav ul li a {
     border: 2px solid #607f83;
     border-radius: 4px;
     background-color: #607f83;
-    transition: background-color 0.3s, border-color 0.3s;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
 /* Keep nav button text consistent even after visiting links */
@@ -109,6 +109,27 @@ nav ul li a:hover {
     background-color: #d9d9d9;
     color: #f3a16d;
     border-color: #607f83;
+    font-weight: bold;
+}
+
+/* Reusable primary button styling (matches nav buttons) */
+.button-primary {
+    text-decoration: none;
+    color: white;
+    padding: 8px 18px;
+    border: 2px solid #607f83;
+    border-radius: 4px;
+    background-color: #607f83;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    display: inline-block;
+    font-size: 0.95rem;
+}
+
+.button-primary:hover {
+    background-color: #d9d9d9;
+    color: #f3a16d;
+    border-color: #607f83;
+    font-weight: bold;
 }
 
 section {
@@ -129,16 +150,28 @@ section {
 
 .project-item h3 {
     margin-top: 0;
+    color: #607f83;
 }
 
-.project-item a {
+.project-item a:not(.button-primary) {
     color: #675c56;
     text-decoration: none;
     transition: color 0.3s;
 }
 
-.project-item a:hover {
+.project-item a:not(.button-primary):hover {
     color: #f3a16d;
+}
+
+/* Project bullets and headings on Projects page */
+#projects h3 {
+    color: #607f83;
+}
+
+.project-dot {
+    color: #f3a16d;
+    margin-right: 6px;
+    font-weight: bold;
 }
 
 footer {
