@@ -337,6 +337,7 @@
         width: 100%;
         border-radius: 4px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        cursor: pointer; /* indicate images are clickable */
     }
 
     .evidence-caption {
@@ -543,23 +544,23 @@
                 <div class="panel">
                     <div class="evidence-gallery">
                         <div class="evidence-item">
-                            <img src="CS340_evidence_01_compound_index_selectstring.jpg" alt="Compound index on status, animal_type, and intake_date">
+                            <img class="evidence-image" src="CS340_evidence_01_compound_index_selectstring.jpg" alt="Compound index on status, animal_type, and intake_date">
                             <p class="evidence-caption">The enhanced module creates an idempotent compound index on status, animal_type, and intake_date to optimize the most common query path.</p>
                         </div>
                         <div class="evidence-item">
-                            <img src="CS340_evidence_02_normalization_helpers.jpg" alt="Centralized normalization helpers for key fields">
+                            <img class="evidence-image" src="CS340_evidence_02_normalization_helpers.jpg" alt="Centralized normalization helpers for key fields">
                             <p class="evidence-caption">Centralized normalization helpers coerce and validate key fields (such as status, type, limit, and dates) before any database operation is performed.</p>
                         </div>
                         <div class="evidence-item">
-                            <img src="CS340_evidence_03_validation_and_error_contract.jpg" alt="Structured success and error dictionaries">
+                            <img class="evidence-image" src="CS340_evidence_03_validation_and_error_contract.jpg" alt="Structured success and error dictionaries">
                             <p class="evidence-caption">The module enforces a consistent contract for outcomes using structured success and error dictionaries, improving reliability and UI-safe error handling.</p>
                         </div>
                         <div class="evidence-item">
-                            <img src="CS340_evidence_04_structured_create_and_diffstat.jpg" alt="Structured create results and diff summary">
+                            <img class="evidence-image" src="CS340_evidence_04_structured_create_and_diffstat.jpg" alt="Structured create results and diff summary">
                             <p class="evidence-caption">The create flow was refactored to return structured results, and the diff summary shows the enhancement scope was intentional and contained to the data-access layer.</p>
                         </div>
                         <div class="evidence-item">
-                            <img src="CS340_evidence_05_explain_query_helper.jpg" alt="Explain query helper for MongoDB">
+                            <img class="evidence-image" src="CS340_evidence_05_explain_query_helper.jpg" alt="Explain query helper for MongoDB">
                             <p class="evidence-caption">An explain_query helper is included to support query-plan inspection and index verification when a MongoDB environment is available.</p>
                         </div>
                     </div>
@@ -605,6 +606,13 @@
             </section>
         </section>
     </div>
+
+    <!-- Modal for viewing evidence images at full size -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
     
     <footer>
         <p>&copy; 2025 Emmalie Cole</p>
@@ -615,8 +623,8 @@
         </p>
     </footer>
 
-    <!-- Turn Navigational links into buttons-->
- <script>
+    <!-- Turn Navigational links into buttons and enable evidence image modal -->
+    <script>
         var acc = document.getElementsByClassName("accordion");
         var i;
 
@@ -630,6 +638,28 @@
                     panel.style.maxHeight = panel.scrollHeight + "px";
                 } 
             });
+        }
+
+        // Evidence image modal viewer (similar behavior to Education page degree viewer)
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        var evidenceImgs = document.getElementsByClassName("evidence-image");
+
+        for (var j = 0; j < evidenceImgs.length; j++) {
+            evidenceImgs[j].addEventListener("click", function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                var captionEl = this.nextElementSibling;
+                captionText.innerHTML = captionEl ? captionEl.innerText : this.alt;
+            });
+        }
+
+        var span = modal.getElementsByClassName("close")[0];
+        if (span) {
+            span.onclick = function() {
+                modal.style.display = "none";
+            };
         }
     </script>
     
