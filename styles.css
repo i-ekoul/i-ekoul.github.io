@@ -4,6 +4,16 @@ body {
     padding: 0;
     background-color: #cac9ca;
     color: #333;
+    /* Sticky footer layout: keeps footer anchored to bottom on short pages */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Prevent horizontal overflow from large images on small screens */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Ensure consistency across navigation, header, footer, sections, buttons, and accordions */
@@ -27,7 +37,7 @@ header {
 
 header::before {
     content: "";
-    background-image: url('banner.png');
+    background-image: url('/assets/images/site/banner.png');
     background-size: cover;
     background-position: center;
     position: absolute;
@@ -58,6 +68,8 @@ header .banner-content {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
+    /* Allow main content area to expand and push footer to bottom */
+    flex: 1 0 auto;
 }
 
 .about-container {
@@ -116,20 +128,51 @@ nav ul li a:hover {
 .button-primary {
     text-decoration: none;
     color: white;
-    padding: 8px 18px;
+    padding: 10px 20px; /* match nav exactly */
     border: 2px solid #607f83;
     border-radius: 4px;
     background-color: #607f83;
     transition: background-color 0.3s, border-color 0.3s, color 0.3s;
     display: inline-block;
-    font-size: 0.95rem;
+    font-size: 1rem; /* match nav exactly */
+    font-family: 'Bellota Text', sans-serif;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Keep primary button text consistent even after visiting links */
+.button-primary:visited {
+    color: white;
 }
 
 .button-primary:hover {
+    /* Match nav button hover behavior */
+    background-color: #d9d9d9;
+    color: #f3a16d;
+    border-color: #607f83;
+    font-weight: bold;
+}
+
+/* Projects page: top external-link buttons should feel identical to nav buttons */
+#projects .projects-top-buttons .button-primary {
+    /* keep explicit selector for safety; should match nav exactly */
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+/* Popups: action buttons should feel identical to nav buttons */
+.leave-modal-actions .button-primary,
+.leave-modal-actions .button-secondary {
+    padding: 10px 20px; /* match nav */
+    font-size: 1rem;
+}
+
+/* Projects page: buttons sit on a gray card, so use a darker hover just inside project cards */
+.project-item .button-primary:hover {
     background-color: #4a6367;
     color: #ffffff;
     border-color: #4a6367;
-    font-weight: bold;
 }
 
 section {
@@ -172,24 +215,179 @@ section {
     color: #333;
 }
 
-.project-dot {
-    color: #f3a16d;
-    margin-right: 6px;
-    font-weight: bold;
+#projects .projects-top-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-/* Education page colors */
-#education p strong {
-    color: #607f83;
+/* Projects page: timeline-style bullets (vertical line + orange dots) */
+#projects .project-timeline {
+    --proj-line-x: 10px;
+    --proj-gutter: 28px;
+    --proj-dot-size: 12px;
+    --proj-item-pad-y: 10px;
+    /* Dot is positioned by its CENTER (because we translate -50%,-50%). */
+    --proj-dot-center: calc(var(--proj-item-pad-y) + 0.9em);
+    position: relative;
+    list-style: none;
+    margin: 10px 0 14px;
+    padding: 0 0 0 var(--proj-gutter); /* room for line + dot */
 }
 
-.edu-year {
+#projects .project-timeline li {
+    position: relative;
+    margin: 0;
+    padding: var(--proj-item-pad-y) 0; /* spacing between bullets without breaking the timeline */
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Per-item vertical line (matches the Education timeline implementation) */
+#projects .project-timeline li::after {
+    content: "";
+    position: absolute;
+    /* li is offset by the ul's left padding; subtract it so the line lands in the ul's gutter */
+    left: calc(var(--proj-line-x) - var(--proj-gutter));
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #c3d0d2;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Trim: don't draw line above the first dot */
+#projects .project-timeline li:first-child::after {
+    top: var(--proj-dot-center);
+}
+
+/* Trim: don't draw line below the last dot */
+#projects .project-timeline li:last-child::after {
+    bottom: auto;
+    height: var(--proj-dot-center);
+}
+
+#projects .project-timeline li::before {
+    content: "";
+    position: absolute;
+    /* li is offset by the ul's left padding; subtract it so the dot lands on the ul's line */
+    left: calc(var(--proj-line-x) - var(--proj-gutter));
+    top: var(--proj-dot-center);
+    width: var(--proj-dot-size);
+    height: var(--proj-dot-size);
+    border-radius: 999px;
+    background-color: #f3a16d;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 3px rgba(243, 161, 109, 0.25);
+    z-index: 2;
+}
+
+/* Education page: timeline-style affiliations */
+#education .edu-timeline {
+    position: relative;
+    margin: 12px 0 18px;
+    /* Layout variables so the line/dot stay centered between the year pill and the text */
+    /* Slightly tighter left column so the timeline sits closer to the left margin */
+    --edu-year-col: 110px;
+    --edu-gap: 20px;
+    /* Place the line very close to the year pill edge (CS499 TOC-style tightness) */
+    --edu-line-x: calc(var(--edu-year-col) + 6px);
+    --edu-dot-top: 20px;
+    --edu-dot-size: 12px;
+    --edu-dot-center: 26px; /* 20px + (12px / 2) */
+}
+
+#education .edu-entry {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--edu-year-col) 1fr; /* year column + content */
+    column-gap: var(--edu-gap);
+    align-items: start;
+    padding: 10px 0;
+}
+
+/* Per-entry vertical line (prevents overhang past first/last dot) */
+#education .edu-entry::after {
+    content: "";
+    position: absolute;
+    left: var(--edu-line-x);
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #c3d0d2;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Trim: don't draw line above the first dot */
+#education .edu-entry:first-child::after {
+    top: var(--edu-dot-center);
+}
+
+/* Trim: don't draw line below the last dot */
+#education .edu-entry:last-child::after {
+    bottom: auto;
+    height: var(--edu-dot-center);
+}
+
+/* Timeline dot */
+#education .edu-entry::before {
+    content: "";
+    position: absolute;
+    left: var(--edu-line-x);
+    top: var(--edu-dot-top);
+    width: var(--edu-dot-size);
+    height: var(--edu-dot-size);
+    border-radius: 999px;
+    background-color: #f3a16d;
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 3px rgba(243, 161, 109, 0.25);
+    z-index: 2;
+}
+
+#education .edu-year {
+    /* Keep all year pills consistently close to the timeline line */
+    justify-self: end;
+    /* Nudge the pills left without moving the timeline line/dots */
+    margin-right: 10px;
+    align-self: start;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 2px solid #607f83;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+#education .edu-body {
+    color: #333;
+    line-height: 1.6;
+}
+
+#education .edu-school {
+    font-weight: 700;
+    color: #000000; /* no accent color by default */
+}
+
+#education .edu-details {
+    color: #333;
+}
+
+/* Experience page: make bullet markers orange */
+#experience ul li::marker {
     color: #f3a16d;
 }
 
 /* Generic accent text helpers */
 .accent-orange {
     color: #f3a16d;
+    font-weight: 700;
+}
+
+.accent-teal {
+    color: #607f83;
     font-weight: 700;
 }
 
@@ -208,6 +406,63 @@ footer {
     color: white;
     position: relative;
     width: 100%;
+    margin-top: auto;
+}
+
+/* Floating "Back to top" button (used on CS499 page) */
+.back-to-top {
+    position: fixed;
+    /* Desktop: sit comfortably inside the right gray margin */
+    right: calc(34px + env(safe-area-inset-right, 0px));
+    bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    border: 2px solid #607f83;
+    background-color: #607f83;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    line-height: 1;
+    font-weight: 700; /* keep weight consistent so the arrow doesn't shift on hover */
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.3s, border-color 0.3s, color 0.3s;
+    z-index: 1000;
+}
+
+.back-to-top span {
+    display: block;
+    line-height: 1;
+    /* Slight baseline correction so the arrow glyph is optically centered */
+    transform: translateY(-1px);
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: #d9d9d9;
+    color: #f3a16d;
+    border-color: #607f83;
+}
+
+/* Mobile: keep the button comfortably inside the viewport and away from iOS safe areas */
+@media (max-width: 768px) {
+    .back-to-top {
+        right: calc(16px + env(safe-area-inset-right, 0px));
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
 }
 footer img {
     width: 30px;
@@ -264,12 +519,19 @@ footer a:hover {
     font-weight: 600;
 }
 
+/* Make these specific accordion headers bold (Badges / Certification Records / Degree Record) */
+#experience .accordion,
+#education .accordion {
+    font-weight: 700;
+}
+
 #skills .accordion:hover,
 #skills .accordion.active,
 #experience .accordion:hover,
 #experience .accordion.active,
 #education .accordion:hover,
 #education .accordion.active {
+    /* Keep accordion headers teal/dark-teal when hovered/active */
     background-color: #4a6367;
     color: white;
 }
@@ -330,8 +592,9 @@ footer a:hover {
 #experience .sub-accordion,
 #education .sub-accordion {
     display: block;
+    /* Match nav button behavior */
     background-color: #607f83;
-    color: white;
+    color: #ffffff;
     cursor: pointer;
     padding: 12px 16px;
     text-align: left;
@@ -339,15 +602,19 @@ footer a:hover {
     font-size: 15px;
     transition: 0.3s;
     margin-top: 8px;
-    border: none;
+    border: 2px solid #607f83;
     outline: none;
     width: 100%;
     border-radius: 4px;
+    font-weight: 700;
 }
 
 #experience .sub-accordion:hover,
 #education .sub-accordion:hover {
-    background-color: #4a6367;
+    /* Hover matches nav buttons hover */
+    background-color: #d9d9d9;
+    color: #f3a16d;
+    border-color: #607f83;
 }
 
     
@@ -367,7 +634,8 @@ footer a:hover {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    /* Must sit above timeline dots/lines and any page content */
+    z-index: 2000;
     padding-top: 100px;
     left: 0;
     top: 0;
@@ -378,12 +646,126 @@ footer a:hover {
     background-color: rgba(0,0,0,0.9);
 }
 
+/* Mobile modals: reduce top padding so content (especially images) isn't pushed too low */
+@media (max-width: 520px) {
+    .modal {
+        padding-top: 40px;
+    }
+
+    .modal-content {
+        width: 94%;
+    }
+
+    #caption {
+        width: 92%;
+    }
+}
+
+.modal.is-open {
+    display: block;
+}
+
 .modal-content {
     margin: auto;
     display: block;
     width: 80%;
     max-width: 700px;
     transition: transform 0.2s ease-in-out;
+}
+
+/* Leave-site confirmation modal (Experience badges) */
+.leave-modal {
+    background-color: rgba(0, 0, 0, 0.65);
+    padding-top: 90px;
+}
+
+.leave-modal-dialog {
+    position: relative;
+    width: min(560px, calc(100% - 40px));
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 10px;
+    border: 2px solid #607f83;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.35);
+    padding: 18px 18px 16px;
+}
+
+.leave-modal-title {
+    margin: 0 40px 8px 0;
+    color: #000000;
+}
+
+.leave-modal-text {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.leave-modal-url {
+    display: inline-block;
+    margin-top: 6px;
+    color: #607f83;
+    font-weight: 700;
+    text-decoration: none;
+    word-break: break-word;
+    border-bottom: 1px dotted #607f83;
+}
+
+.leave-modal-url:hover {
+    color: #f3a16d;
+    border-bottom-color: #f3a16d;
+}
+
+.leave-modal-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+.leave-modal-actions .button-primary,
+.leave-modal-actions .button-secondary {
+    text-align: center;
+}
+
+.button-secondary {
+    padding: 8px 18px;
+    border: 2px solid #607f83;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #607f83;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.button-secondary:hover {
+    background-color: #d9d9d9;
+    color: #f3a16d;
+    border-color: #607f83;
+}
+
+.leave-modal .close {
+    top: 10px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: 2px solid #607f83;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 26px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.leave-modal .close:hover,
+.leave-modal .close:focus {
+    /* Match nav hover behavior */
+    background-color: #d9d9d9;
+    color: #f3a16d;
+    border-color: #607f83;
 }
 
 .modal-content, #caption {
@@ -491,6 +873,145 @@ form button:hover {
     background-color: #f3a16d;
 }
 
+/* Contact page: professional layout + less vertical scrolling */
+#contact .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 22px;
+    align-items: start;
+    margin-top: 10px;
+}
+
+#contact .contact-form-area {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#contact .contact-panel {
+    background: #ffffff;
+    border: 1px solid rgba(96, 127, 131, 0.25);
+    border-left: 4px solid #607f83;
+    border-radius: 12px;
+    padding: 18px 18px 16px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+#contact .contact-panel--form {
+    /* Remove the “divider” feel between columns while keeping a branded accent */
+    border-left: 1px solid rgba(96, 127, 131, 0.25);
+    border-top: 4px solid #607f83;
+}
+
+#contact .contact-panel-title {
+    margin: 0 0 10px;
+    color: #000000;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+#contact .contact-copy p {
+    margin: 8px 0;
+}
+
+#contact .contact-meta-list {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#contact .contact-meta {
+    color: #333;
+    font-size: 0.95rem;
+}
+
+/* Override the global form "card" so the section itself is the card */
+#contact .contact-form {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    gap: 12px;
+}
+
+#contact .contact-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+#contact .contact-form .form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact .contact-form label {
+    margin-bottom: 6px;
+    font-weight: 800;
+    color: #222;
+}
+
+#contact .contact-form input,
+#contact .contact-form textarea {
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+#contact .contact-form input:focus,
+#contact .contact-form textarea:focus {
+    outline: none;
+    border-color: rgba(96, 127, 131, 0.85);
+    box-shadow: 0 0 0 3px rgba(96, 127, 131, 0.22);
+}
+
+#contact .contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+#contact .contact-submit {
+    width: 100%;
+    text-align: center;
+    border-radius: 12px;
+    padding: 12px 20px; /* a bit more “CTA” sized */
+}
+
+#contact #contact-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+#contact .form-status {
+    margin: 8px 0 0;
+    min-height: 1.3em; /* reserve space so layout doesn't jump */
+    font-size: 0.95rem;
+}
+
+#contact .form-status.is-success {
+    color: #2f6f4e;
+    font-weight: 700;
+}
+
+#contact .form-status.is-error {
+    color: #9b2c2c;
+    font-weight: 700;
+}
+
+@media (max-width: 900px) {
+    #contact .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    #contact .contact-form .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Resume Button */
 #resume {
     text-align: center;
@@ -528,11 +1049,12 @@ form button:hover {
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
     header {
-        height: 200px;
+        /* Avoid fixed header heights on mobile to prevent banner cropping */
+        padding: 1.1em 0 0.9em;
     }
 
     header .banner-content img {
-        max-height: 80%;
+        width: 92%;
     }
 
     .profile-pic {
@@ -551,6 +1073,14 @@ form button:hover {
         display: block;
     }
 
+    /* Projects: top buttons should mimic the nav button layout on smaller screens */
+    #projects .projects-top-buttons .button-primary {
+        padding: 10px 15px;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
     .content {
         padding: 15px;
     }
@@ -558,11 +1088,11 @@ form button:hover {
 
 @media (max-width: 480px) {
     header {
-        height: 150px;
+        padding: 0.9em 0 0.75em;
     }
 
     header .banner-content img {
-        max-height: 70%;
+        width: 96%;
     }
 
     .profile-pic {
@@ -589,6 +1119,28 @@ form button:hover {
         width: 100px;
         height: 100px;
         margin: 0 0 10px 0;
+    }
+}
+
+@media (max-width: 520px) {
+    /* Education timeline: stack year above content and remove the line/dot for narrow screens */
+    #education .edu-entry {
+        grid-template-columns: 1fr;
+        row-gap: 8px;
+        padding: 12px 0;
+    }
+
+    #education .edu-entry::before {
+        display: none;
+    }
+
+    #education .edu-entry::after {
+        display: none;
+    }
+
+    #education .edu-year {
+        justify-self: start;
+        margin-right: 0;
     }
 }
 

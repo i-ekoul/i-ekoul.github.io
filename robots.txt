@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://i-ekoul.github.io/sitemap.xml
+
+

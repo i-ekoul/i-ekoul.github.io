@@ -5,34 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 
       <!-- favicon code below --> 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 </head>
     
 <body>
     <header>
         <div class="banner-content">
-        <img src="banner.png" alt="Banner Image" class="banner">
+        <img src="/assets/images/site/banner.png" alt="Banner Image" class="banner">
         </div>
     </header>
     
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/home/">Home</a></li>
             <li><a href="/projects/">Projects</a></li>
-            <li><a href="skills.html">Skills</a></li>
-            <li><a href="experience.html">Experience</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="bio.html">Bio</a></li>
+            <li><a href="/skills/">Skills</a></li>
+            <li><a href="/experience/">Experience</a></li>
+            <li><a href="/education/">Education</a></li>
+            <li><a href="/bio/">Bio</a></li>
             <li><a href="/contact/">Contact</a></li>
         </ul>
     </nav>
@@ -102,6 +102,24 @@
         </section>
     </div>
     
+    <!-- Leave-site confirmation modal (for external badge links) -->
+    <div id="leaveSiteModal" class="modal leave-modal" aria-hidden="true">
+        <div class="leave-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="leaveSiteTitle">
+            <span class="close" id="leaveSiteClose" aria-label="Close">&times;</span>
+            <h3 class="leave-modal-title" id="leaveSiteTitle">Leaving this website</h3>
+            <p class="leave-modal-text">
+                This link will open in a new tab and take you away from this site:
+            </p>
+            <p class="leave-modal-text">
+                <a id="leaveSiteUrl" class="leave-modal-url" href="#" target="_blank" rel="noopener noreferrer"></a>
+            </p>
+            <div class="leave-modal-actions">
+                <button type="button" class="button-primary" id="leaveSiteContinue">Continue</button>
+                <button type="button" class="button-primary" id="leaveSiteStay">Stay on this site</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
     <p>&copy; 2025 Emmalie Cole</p>
     <p>
@@ -128,16 +146,92 @@
         }
 
         var subAccButtons = document.getElementsByClassName("sub-accordion");
+        var leaveModal = document.getElementById("leaveSiteModal");
+        var leaveClose = document.getElementById("leaveSiteClose");
+        var leaveUrlEl = document.getElementById("leaveSiteUrl");
+        var leaveContinue = document.getElementById("leaveSiteContinue");
+        var leaveStay = document.getElementById("leaveSiteStay");
+        var pendingUrl = null;
+
+        function openLeaveModal(url) {
+            pendingUrl = url;
+            if (leaveUrlEl) {
+                leaveUrlEl.textContent = url;
+                leaveUrlEl.href = url;
+            }
+            if (leaveModal) {
+                leaveModal.classList.add("is-open");
+                leaveModal.setAttribute("aria-hidden", "false");
+            }
+        }
+
+        function closeLeaveModal() {
+            pendingUrl = null;
+            if (leaveModal) {
+                leaveModal.classList.remove("is-open");
+                leaveModal.setAttribute("aria-hidden", "true");
+            }
+        }
+
+        function openInNewTab(url) {
+            // Use noopener for safety; fallback to setting opener = null
+            var w = window.open(url, "_blank", "noopener");
+            if (w) {
+                w.opener = null;
+            }
+        }
+
         for (var i = 0; i < subAccButtons.length; i++) {
             subAccButtons[i].addEventListener("click", function() {
                 var url = this.getAttribute("data-url");
                 if (url) {
-                    window.open(url, "_blank"); // Opens the link in a new tab
+                    openLeaveModal(url);
                 }
             });
         }
+
+        if (leaveContinue) {
+            leaveContinue.addEventListener("click", function() {
+                if (pendingUrl) {
+                    openInNewTab(pendingUrl);
+                }
+                closeLeaveModal();
+            });
+        }
+
+        if (leaveStay) {
+            leaveStay.addEventListener("click", function() {
+                closeLeaveModal();
+            });
+        }
+
+        if (leaveClose) {
+            leaveClose.addEventListener("click", function() {
+                closeLeaveModal();
+            });
+        }
+
+        // Close if the user clicks outside the dialog
+        if (leaveModal) {
+            leaveModal.addEventListener("click", function(e) {
+                if (e.target === leaveModal) {
+                    closeLeaveModal();
+                }
+            });
+        }
+
+        // Close on Escape
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "Escape" && leaveModal && leaveModal.classList.contains("is-open")) {
+                closeLeaveModal();
+            }
+        });
     </script>
 
+    <script src="/assets/js/back-to-top.js"></script>
+    <script src="/assets/js/nav-focus.js"></script>
     
 </body>
 </html>
+
+

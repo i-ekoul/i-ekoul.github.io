@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS499 - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,27 +12,27 @@
 
 
       <!-- favicon code below --> 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 </head>
     
 <body>
     <header>
     <div class="banner-content">
-        <img src="banner.png" alt="Banner Image" class="banner">
+        <img src="/assets/images/site/banner.png" alt="Banner Image" class="banner">
     </div>
 </header>
     
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/home/">Home</a></li>
             <li><a href="/projects/">Projects</a></li>
-            <li><a href="skills.html">Skills</a></li>
-            <li><a href="experience.html">Experience</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="bio.html">Bio</a></li>
+            <li><a href="/skills/">Skills</a></li>
+            <li><a href="/experience/">Experience</a></li>
+            <li><a href="/education/">Education</a></li>
+            <li><a href="/bio/">Bio</a></li>
             <li><a href="/contact/">Contact</a></li>
         </ul>
     </nav>
@@ -56,7 +56,7 @@
     .toc h3 {
         margin-top: 0;
         margin-bottom: 16px;
-        color: #333;
+        color: #f3a16d;
     }
 
     .toc-list {
@@ -69,9 +69,10 @@
     .toc-list::before {
         content: "";
         position: absolute;
-        left: 22px;
-        top: 0;
-        bottom: 0;
+        /* Center the line behind the 32px step circles and keep it within the first/last circle */
+        left: 16px;
+        top: 16px;
+        bottom: 16px;
         width: 2px;
         background-color: #c3d0d2;
     }
@@ -99,7 +100,7 @@
     }
 
     .toc-body a {
-        color: #607f83;
+        color: #000000;
         font-weight: 600;
         text-decoration: none;
     }
@@ -177,9 +178,10 @@
     }
 
     /* Enhancement Section Styling */
-    #enhancement-one,
-    #enhancement-two,
-    #enhancement-three {
+    /* Increase specificity so this overrides `#cs499 section { padding: 20px; }` */
+    #cs499 section#enhancement-one,
+    #cs499 section#enhancement-two,
+    #cs499 section#enhancement-three {
         border-left: 4px solid #607f83;
         background-color: #fafafa;
         padding: 0;
@@ -241,6 +243,17 @@
         font-size: 1.05em;
     }
 
+    /* CS340 uses a 2-column layout, so ensure the "Before:" / "After:" labels stay teal */
+    #cs499 .cs340-bve-row p strong {
+        color: #607f83;
+        font-size: 1.05em;
+    }
+
+    /* CS340 request: only the "After:" label should be black */
+    #cs499 .cs340-bve-row p strong.after-label {
+        color: #000000;
+    }
+
     #cs499 section p strong.evidence-text {
         color: #f3a16d;
     }
@@ -263,6 +276,51 @@
         border-bottom: 1px solid #f3a16d;
     }
 
+    /* CS340: 2-column Before/After/Evidence layout (text left, button right) */
+    .cs340-bve {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 8px;
+    }
+
+    .cs340-bve-row {
+        display: grid;
+        /* Fixed action column prevents text reflow when the button becomes bold on hover */
+        grid-template-columns: 1fr 260px;
+        gap: 16px;
+        align-items: start;
+        padding: 10px 0;
+    }
+
+    .cs340-bve-row + .cs340-bve-row {
+        border-top: 1px solid #e6e6e6;
+        padding-top: 14px;
+    }
+
+    .cs340-bve-row p {
+        margin: 0;
+    }
+
+    .cs340-bve-action {
+        white-space: nowrap;
+    }
+
+    .cs340-bve-action .button-primary {
+        width: 100%;
+        text-align: center;
+    }
+
+    @media (max-width: 700px) {
+        .cs340-bve-row {
+            grid-template-columns: 1fr;
+        }
+
+        .cs340-bve-action {
+            white-space: normal;
+        }
+    }
+
     /* List Styling */
     #cs499 section ul {
         margin: 12px 0;
@@ -276,7 +334,11 @@
     }
 
     #cs499 section ul li::marker {
-        color: #607f83;
+        color: #f3a16d;
+    }
+
+    #cs499 section ol li::marker {
+        color: #f3a16d;
     }
 
 
@@ -479,21 +541,67 @@
                 </ul>
 
                 <h4>Before vs After vs Evidence</h4>
-                <p><strong>Before:</strong> Validation logic was scattered across methods, update operations could silently ignore invalid inputs, and error handling relied on boolean returns without structured error information.</p>
-                <p><strong>After:</strong> Centralized validation helpers enforce constraints consistently, guarded updates fail operations when constraints are violated, and structured Result/ErrorCode types provide clear error semantics without exposing exceptions.</p>
-                <p><strong class="evidence-text">Evidence:</strong> The enhanced codebase demonstrates improved maintainability through reduced duplication, explicit constraint documentation, and predictable failure modes. The internal Result type enables comprehensive error handling while preserving the original public API.</p>
+                <div class="cs340-bve">
+                    <div class="cs340-bve-row">
+                        <p><strong>Before:</strong> Validation logic was scattered across methods, update operations could silently ignore invalid inputs, and error handling relied on boolean returns without structured error information.</p>
+                        <div class="cs340-bve-action">
+                            <button type="button" class="button-primary" data-url="https://github.com/i-ekoul/CS320-Software-Testing-QA/tree/v-before-review">View Original Repo</button>
+                        </div>
+                    </div>
+                    <div class="cs340-bve-row">
+                        <p><strong class="after-label">After:</strong> Centralized validation helpers enforce constraints consistently, guarded updates fail operations when constraints are violated, and structured Result/ErrorCode types provide clear error semantics without exposing exceptions.</p>
+                        <div class="cs340-bve-action">
+                            <button type="button" class="button-primary" data-url="https://github.com/i-ekoul/CS320-Software-Testing-QA/tree/enhancement/m2-cs320-contactservice">View Enhanced Repo</button>
+                        </div>
+                    </div>
+                    <div class="cs340-bve-row">
+                        <p><strong class="evidence-text">Evidence:</strong> The enhanced codebase demonstrates improved maintainability through reduced duplication, explicit constraint documentation, and predictable failure modes. The internal Result type enables comprehensive error handling while preserving the original public API.</p>
+                        <div class="cs340-bve-action">
+                            <button type="button" class="button-primary" data-url="https://github.com/i-ekoul/CS320-Software-Testing-QA/compare/v-before-review...enhancement/m2-cs320-contactservice">View Diff Comparison</button>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Evidence Image Accordion -->
                 <button class="accordion">Evidence Gallery</button>
                 <div class="panel">
                     <div class="evidence-gallery">
-                        <!-- Add one or more evidence cards here, for example:
                         <div class="evidence-item">
-                            <img class="evidence-image" src="cs320-evidence1.png" alt="CS320 enhancement evidence 1">
-                            <p class="evidence-caption">Short caption describing what this evidence shows.</p>
+                            <img class="evidence-image" src="/assets/images/evidence/CS320_01_Provenance_FoldersAndFiles.png.jpg" alt="Evidence provenance: before/after folders and ContactService.java exist in both">
+                            <p class="evidence-caption">Evidence provenance: PowerShell output confirms the dedicated BEFORE and AFTER folders and verifies that ContactService.java exists in both locations, establishing the controlled comparison set for this enhancement.</p>
                         </div>
-                        -->
-                        <p class="evidence-caption">Visual evidence (screenshots, diagrams, or snippets) for this enhancement will appear here.</p>
+                        <div class="evidence-item">
+                            <img class="evidence-image" src="/assets/images/evidence/CS320_02_Before_ScatteredValidation_Booleans.png.jpg" alt="Before: scattered validation and boolean-only error reporting">
+                            <p class="evidence-caption">Before: validation is embedded inside updateContact via repeated conditional checks; invalid fields are silently ignored, and the method still returns true even when no update occurs. Error reporting is limited to boolean success/failure.</p>
+                        </div>
+                        <div class="evidence-item">
+                            <img class="evidence-image" src="/assets/images/evidence/CS320_03_After_Invariants_Result_ErrorCode-1.png.jpg" alt="After: invariants and Result/ErrorCode with centralized validation helpers">
+                            <p class="evidence-caption">After: ContactService documents explicit class invariants and introduces a local ErrorCode plus internal Result&lt;T&gt; type. Validation rules are centralized into helper methods (e.g., validName, validPhone, validAddress) for consistent enforcement.</p>
+                        </div>
+                        <div class="evidence-item">
+                            <img class="evidence-image" src="/assets/images/evidence/CS320_03_After_Invariants_Result_ErrorCode-2.png.jpg" alt="After: public boolean API preserved via internal Result-returning helpers">
+                            <p class="evidence-caption">After: the public API remains boolean-returning for compatibility, but addContact delegates to addContactInternal which returns a structured Result (e.g., INVALID_INPUT, CONFLICT), enabling precise failure semantics without exposing exceptions.</p>
+                        </div>
+                        <div class="evidence-item">
+                            <img class="evidence-image" src="/assets/images/evidence/CS320_03_After_Invariants_Result_ErrorCode-3.png.jpg" alt="After: guarded update flow prevents partial or silent failures">
+                            <p class="evidence-caption">After: guarded update flow—updateContactInternal returns NOT_FOUND when the target record is missing and returns INVALID_INPUT when any provided field violates constraints, preventing partial or silent failures.</p>
+                        </div>
+                        <div class="evidence-item">
+                            <img class="evidence-image" src="/assets/images/evidence/CS320_04_After_ValidationHelpers_GuardedUpdate.png.jpg" alt="After: validate-then-apply pattern removes silent-ignore behavior">
+                            <p class="evidence-caption">After: validate-then-apply pattern—inputs are validated first (“null means no change”); only if all provided fields pass validation are updates applied. This removes silent-ignore behavior and produces predictable failure modes.</p>
+                        </div>
+                        <div class="evidence-item">
+                            <img class="evidence-image" src="/assets/images/evidence/CS320_05_Diff_BeforeVsAfter-1.png.jpg" alt="Diff evidence: invariants, Result/ErrorCode model, and validation helpers introduced">
+                            <p class="evidence-caption">Diff evidence: git diff --no-index shows the introduction of invariant documentation, the Result/ErrorCode model, and centralized validation helpers—demonstrating reduced duplication and improved maintainability.</p>
+                        </div>
+                        <div class="evidence-item">
+                            <img class="evidence-image" src="/assets/images/evidence/CS320_05_Diff_BeforeVsAfter-2.png.jpg" alt="Diff evidence continuation: boolean API delegates to Result-based helpers">
+                            <p class="evidence-caption">Diff evidence (continuation): the refactor from direct boolean-only logic to internal Result-based helpers is visible (e.g., addContact now delegates and returns r.ok()), confirming the compatibility-preserving design.</p>
+                        </div>
+                        <div class="evidence-item">
+                            <img class="evidence-image" src="/assets/images/evidence/CS320_06_Diff_API_Preserved.png.jpg" alt="Public API compatibility confirmed by method signature search">
+                            <p class="evidence-caption">Public API compatibility: Select-String output confirms the public method signatures remain unchanged (addContact, deleteContact, updateContact, getContact) while internal helpers provide structured error semantics.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -503,13 +611,6 @@
                     <li><strong>Algorithms & Data Structures:</strong> Efficient constraint checking and guarded update logic demonstrate algorithmic thinking</li>
                     <li><strong>Software Development Lifecycle:</strong> Refactoring approach preserves backward compatibility while improving robustness</li>
                     <li><strong>Communication:</strong> Clear documentation of invariants and error codes improves code readability and team collaboration</li>
-                </ul>
-
-                <h4>Links</h4>
-                <ul>
-                    <li>Before: <a href="https://github.com/i-ekoul/CS320-Software-Testing-QA/tree/v-before-review" target="_blank">https://github.com/i-ekoul/CS320-Software-Testing-QA/tree/v-before-review</a></li>
-                    <li>Enhanced: <a href="https://github.com/i-ekoul/CS320-Software-Testing-QA/tree/enhancement/m2-cs320-contactservice" target="_blank">https://github.com/i-ekoul/CS320-Software-Testing-QA/tree/enhancement/m2-cs320-contactservice</a></li>
-                    <li>Compare changes: <a href="https://github.com/i-ekoul/CS320-Software-Testing-QA/compare/v-before-review...enhancement/m2-cs320-contactservice" target="_blank">View diff on GitHub</a></li>
                 </ul>
 
                 <h4 class="narrative-header">Narrative</h4>
@@ -550,21 +651,55 @@
                 </ul>
 
                 <h4>Before vs After vs Evidence</h4>
-                <p><strong>Before:</strong> The scene rendered static 3D objects without interactive selection capabilities. Users could view the scene but had no way to identify or interact with individual objects.</p>
-                <p><strong>After:</strong> Ray-based picking implementation enables deterministic object selection using slab-based ray-AABB intersection. The pickObjectId helper returns the nearest intersected object, with safeguards for edge cases and documentation for broad-phase acceleration strategies.</p>
-                <p><strong class="evidence-text">Evidence:</strong> The implementation demonstrates correct geometric reasoning through robust edge-case handling. Trade-off notes document the O(n) per-pick complexity and outline uniform-grid traversal as a future optimization path for larger scenes, showing awareness of scalability considerations.</p>
+                <div class="cs340-bve">
+                    <div class="cs340-bve-row">
+                        <p><strong>Before:</strong> The scene rendered static 3D objects without interactive selection capabilities. Users could view the scene but had no way to identify or interact with individual objects.</p>
+                        <div class="cs340-bve-action">
+                            <button type="button" class="button-primary" data-url="https://github.com/i-ekoul/CS-330/tree/v-before-review">View Original Repo</button>
+                        </div>
+                    </div>
+                    <div class="cs340-bve-row">
+                        <p><strong class="after-label">After:</strong> Ray-based picking implementation enables deterministic object selection using slab-based ray-AABB intersection. The pickObjectId helper returns the nearest intersected object, with safeguards for edge cases and documentation for broad-phase acceleration strategies.</p>
+                        <div class="cs340-bve-action">
+                            <button type="button" class="button-primary" data-url="https://github.com/i-ekoul/CS-330/tree/enhancement/m2-cs330-picking">View Enhanced Repo</button>
+                        </div>
+                    </div>
+                    <div class="cs340-bve-row">
+                        <p><strong class="evidence-text">Evidence:</strong> The implementation demonstrates correct geometric reasoning through robust edge-case handling. Trade-off notes document the O(n) per-pick complexity and outline uniform-grid traversal as a future optimization path for larger scenes, showing awareness of scalability considerations.</p>
+                        <div class="cs340-bve-action">
+                            <button type="button" class="button-primary" data-url="https://github.com/i-ekoul/CS-330/compare/v-before-review...enhancement/m2-cs330-picking">View Diff Comparison</button>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Evidence Image Accordion -->
                 <button class="accordion">Evidence Gallery</button>
                 <div class="panel">
                     <div class="evidence-gallery">
-                        <!-- Add one or more evidence cards here, for example:
                         <div class="evidence-item">
-                            <img class="evidence-image" src="cs330-evidence1.png" alt="CS330 enhancement evidence 1">
-                            <p class="evidence-caption">Short caption describing what this evidence shows.</p>
+                            <img class="evidence-image" src="/assets/images/evidence/CS330_01_Provenance_FoldersAndFiles.jpg" alt="Provenance snapshot showing BEFORE vs AFTER source folders and enhanced MainCode.cpp in AFTER">
+                            <p class="evidence-caption">Provenance snapshot showing BEFORE vs AFTER source folders and confirming the enhanced MainCode.cpp exists in the AFTER directory.</p>
                         </div>
-                        -->
-                        <p class="evidence-caption">Visual evidence (screenshots, diagrams, or snippets) for this enhancement will appear here.</p>
+                        <div class="evidence-item">
+                            <img class="evidence-image" src="/assets/images/evidence/CS330_02_Before_NoPickingSymbols.jpg" alt="Baseline verification (BEFORE): no ray/AABB/picking symbols present">
+                            <p class="evidence-caption">Baseline verification (BEFORE): no ray/AABB/picking symbols present. The search returns no matches, supporting the claim that the original artifact had no selection implementation.</p>
+                        </div>
+                        <div class="evidence-item">
+                            <img class="evidence-image" src="/assets/images/evidence/CS330_03_After_PickingSymbolsPresent.jpg" alt="Enhanced implementation (AFTER): picking types and helpers are present">
+                            <p class="evidence-caption">Enhanced implementation (AFTER): picking types and helpers are present. Confirms the introduction of Ray, AABB, rayAabbSlab, and pickObjectId (selection pipeline now exists).</p>
+                        </div>
+                        <div class="evidence-item">
+                            <img class="evidence-image" src="/assets/images/evidence/CS330_04_After_RayAabbSlab_EdgeCases-1.jpg" alt="Slab-based ray–AABB intersection helper with numeric safeguards and correct interval handling">
+                            <p class="evidence-caption">Slab-based ray–AABB intersection helper (rayAabbSlab) with numeric safeguards for near-parallel directions and correct interval handling.</p>
+                        </div>
+                        <div class="evidence-item">
+                            <img class="evidence-image" src="/assets/images/evidence/CS330_05_After_PickObjectId_NearestHit.jpg" alt="Deterministic picking routine returning closest valid hit ID (nearest intersection)">
+                            <p class="evidence-caption">Deterministic picking routine (pickObjectId) that tests a ray against each object AABB and returns the closest valid hit ID (nearest intersection).</p>
+                        </div>
+                        <div class="evidence-item">
+                            <img class="evidence-image" src="/assets/images/evidence/CS330_06_After_BroadPhase_Notes.jpg" alt="Trade-offs and scalability plan with uniform-grid (3D-DDA) broad-phase path">
+                            <p class="evidence-caption">Documented trade-offs and scalability plan: current O(n) per-pick AABB checks with a documented uniform-grid (3D-DDA traversal) broad-phase optimization path for larger scenes.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -574,13 +709,6 @@
                     <li><strong>Design & Software Engineering:</strong> Self-contained picking implementation shows modular design without disrupting existing architecture</li>
                     <li><strong>Computer Science Foundations:</strong> Mathematical correctness in coordinate transformations and intersection calculations</li>
                     <li><strong>Communication:</strong> In-code documentation and trade-off notes demonstrate professional technical writing</li>
-                </ul>
-
-                <h4>Links</h4>
-                <ul>
-                    <li>Before: <a href="https://github.com/i-ekoul/CS-330/tree/v-before-review" target="_blank">https://github.com/i-ekoul/CS-330/tree/v-before-review</a></li>
-                    <li>Enhanced: <a href="https://github.com/i-ekoul/CS-330/tree/enhancement/m2-cs330-picking" target="_blank">https://github.com/i-ekoul/CS-330/tree/enhancement/m2-cs330-picking</a></li>
-                    <li>Compare changes: <a href="https://github.com/i-ekoul/CS-330/compare/v-before-review...enhancement/m2-cs330-picking" target="_blank">View diff on GitHub</a></li>
                 </ul>
 
                 <h4 class="narrative-header">Narrative</h4>
@@ -622,32 +750,49 @@
                 </ul>
 
                 <h4>Before vs After vs Evidence</h4>
-                <p><strong>Before:</strong> Queries executed without compound indexes, input validation was inconsistent, and error handling relied on exceptions or raw return values without structured responses.</p>
-                <p><strong>After:</strong> Idempotent compound-index creation optimizes common query paths, centralized validation ensures well-formed inputs before query execution, and standardized success/error dictionaries enable consistent failure handling. The explain_query helper supports performance verification.</p>
-                <p><strong class="evidence-text">Evidence:</strong> The enhanced module demonstrates improved reliability through defensive input handling and structured error contracts. Index-aware design supports predictable query performance as the dataset scales, and the explain helper provides concrete evidence of optimization effectiveness.</p>
+                <div class="cs340-bve">
+                    <div class="cs340-bve-row">
+                        <p><strong>Before:</strong> Queries executed without compound indexes, input validation was inconsistent, and error handling relied on exceptions or raw return values without structured responses.</p>
+                        <div class="cs340-bve-action">
+                            <button type="button" class="button-primary" data-url="https://github.com/i-ekoul/CS340-Animal-Shelter-Dashboard/tree/v-before-review">View Original Repo</button>
+                        </div>
+                    </div>
+                    <div class="cs340-bve-row">
+                        <p><strong class="after-label">After:</strong> Idempotent compound-index creation optimizes common query paths, centralized validation ensures well-formed inputs before query execution, and standardized success/error dictionaries enable consistent failure handling. The explain_query helper supports performance verification.</p>
+                        <div class="cs340-bve-action">
+                            <button type="button" class="button-primary" data-url="https://github.com/i-ekoul/CS340-Animal-Shelter-Dashboard/tree/enhancement/m2-cs340-animal-shelter">View Enhanced Repo</button>
+                        </div>
+                    </div>
+                    <div class="cs340-bve-row">
+                        <p><strong class="evidence-text">Evidence:</strong> The enhanced module demonstrates improved reliability through defensive input handling and structured error contracts. Index-aware design supports predictable query performance as the dataset scales, and the explain helper provides concrete evidence of optimization effectiveness.</p>
+                        <div class="cs340-bve-action">
+                            <button type="button" class="button-primary" data-url="https://github.com/i-ekoul/CS340-Animal-Shelter-Dashboard/compare/v-before-review...enhancement/m2-cs340-animal-shelter">View Diff Comparison</button>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Evidence Image Accordion -->
                 <button class="accordion">Evidence Gallery</button>
                 <div class="panel">
                     <div class="evidence-gallery">
                         <div class="evidence-item">
-                            <img class="evidence-image" src="CS340_evidence_01_compound_index_selectstring.jpg" alt="Compound index on status, animal_type, and intake_date">
+                            <img class="evidence-image" src="/assets/images/evidence/CS340_evidence_01_compound_index_selectstring.jpg" alt="Compound index on status, animal_type, and intake_date">
                             <p class="evidence-caption">The enhanced module creates an idempotent compound index on status, animal_type, and intake_date to optimize the most common query path.</p>
                         </div>
                         <div class="evidence-item">
-                            <img class="evidence-image" src="CS340_evidence_02_normalization_helpers.jpg" alt="Centralized normalization helpers for key fields">
+                            <img class="evidence-image" src="/assets/images/evidence/CS340_evidence_02_normalization_helpers.jpg" alt="Centralized normalization helpers for key fields">
                             <p class="evidence-caption">Centralized normalization helpers coerce and validate key fields (such as status, type, limit, and dates) before any database operation is performed.</p>
                         </div>
                         <div class="evidence-item">
-                            <img class="evidence-image" src="CS340_evidence_03_validation_and_error_contract.jpg" alt="Structured success and error dictionaries">
+                            <img class="evidence-image" src="/assets/images/evidence/CS340_evidence_03_validation_and_error_contract.jpg" alt="Structured success and error dictionaries">
                             <p class="evidence-caption">The module enforces a consistent contract for outcomes using structured success and error dictionaries, improving reliability and UI-safe error handling.</p>
                         </div>
                         <div class="evidence-item">
-                            <img class="evidence-image" src="CS340_evidence_04_structured_create_and_diffstat.jpg" alt="Structured create results and diff summary">
+                            <img class="evidence-image" src="/assets/images/evidence/CS340_evidence_04_structured_create_and_diffstat.jpg" alt="Structured create results and diff summary">
                             <p class="evidence-caption">The create flow was refactored to return structured results, and the diff summary shows the enhancement scope was intentional and contained to the data-access layer.</p>
                         </div>
                         <div class="evidence-item">
-                            <img class="evidence-image" src="CS340_evidence_05_explain_query_helper.jpg" alt="Explain query helper for MongoDB">
+                            <img class="evidence-image" src="/assets/images/evidence/CS340_evidence_05_explain_query_helper.jpg" alt="Explain query helper for MongoDB">
                             <p class="evidence-caption">An explain_query helper is included to support query-plan inspection and index verification when a MongoDB environment is available.</p>
                         </div>
                     </div>
@@ -659,13 +804,6 @@
                     <li><strong>Design & Software Engineering:</strong> Structured result payloads and validation helpers improve interface design and maintainability</li>
                     <li><strong>Software Development Lifecycle:</strong> Performance verification tools support evidence-based optimization</li>
                     <li><strong>Communication:</strong> Documentation of indexing strategy and validation constraints demonstrates professional database practices</li>
-                </ul>
-
-                <h4>Links</h4>
-                <ul>
-                    <li>Before: <a href="https://github.com/i-ekoul/CS340-Animal-Shelter-Dashboard/tree/v-before-review" target="_blank">https://github.com/i-ekoul/CS340-Animal-Shelter-Dashboard/tree/v-before-review</a></li>
-                    <li>Enhanced: <a href="https://github.com/i-ekoul/CS340-Animal-Shelter-Dashboard/tree/enhancement/m2-cs340-animal-shelter" target="_blank">https://github.com/i-ekoul/CS340-Animal-Shelter-Dashboard/tree/enhancement/m2-cs340-animal-shelter</a></li>
-                    <li>Compare changes: <a href="https://github.com/i-ekoul/CS340-Animal-Shelter-Dashboard/compare/v-before-review...enhancement/m2-cs340-animal-shelter" target="_blank">View diff on GitHub</a></li>
                 </ul>
 
                 <h4 class="narrative-header">Narrative</h4>
@@ -705,6 +843,7 @@
             <button id="zoomIn">+</button>
         </div>
     </div>
+
     
     <footer>
         <p>&copy; 2025 Emmalie Cole</p>
@@ -720,15 +859,76 @@
         var acc = document.getElementsByClassName("accordion");
         var i;
 
+        function isPanelExpanded(panel) {
+            if (!panel) return false;
+            // Expanded panels may have maxHeight set to px or "none"
+            return !!panel.style.maxHeight;
+        }
+
+        function openPanel(panel) {
+            if (!panel) return;
+
+            // Set to current scrollHeight so we can animate open...
+            panel.style.maxHeight = panel.scrollHeight + "px";
+
+            // ...then remove the max-height limit so dynamic content (e.g., images) never gets clipped.
+            var done = false;
+            var onEnd = function(e) {
+                if (done) return;
+                if (e && e.propertyName && e.propertyName !== "max-height") return;
+                done = true;
+                panel.style.maxHeight = "none";
+                panel.removeEventListener("transitionend", onEnd);
+            };
+            panel.addEventListener("transitionend", onEnd);
+
+            // Fallback in case transitionend doesn't fire (some browsers / interrupted transitions)
+            setTimeout(function() {
+                if (!done) onEnd();
+            }, 250);
+        }
+
+        function closePanel(panel) {
+            if (!panel) return;
+
+            // If currently unlimited ("none"), set an explicit height first so the close animation works.
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            requestAnimationFrame(function() {
+                panel.style.maxHeight = null;
+            });
+        }
+
+        function refreshAncestorPanels(fromEl) {
+            // When nested accordions expand/collapse, parent panels need their maxHeight recomputed
+            // or the remaining content becomes clipped.
+            var el = fromEl;
+            while (el) {
+                if (el.classList && el.classList.contains("panel")) {
+                    // If panel is in animated "px" mode, keep it in sync. If it's "none", it won't clip anyway.
+                    if (el.style.maxHeight && el.style.maxHeight !== "none") {
+                        el.style.maxHeight = el.scrollHeight + "px";
+                    }
+                }
+                el = el.parentElement;
+            }
+        }
+
         for (i = 0; i < acc.length; i++) {
             acc[i].addEventListener("click", function() {
                 this.classList.toggle("active");
                 var panel = this.nextElementSibling;
-                if (panel && panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
+                if (panel && isPanelExpanded(panel)) {
+                    closePanel(panel);
                 } else if (panel) {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                } 
+                    openPanel(panel);
+                }
+
+                // Reflow parent panels after this panel's height changes (nested accordions)
+                if (panel) {
+                    requestAnimationFrame(function() {
+                        refreshAncestorPanels(panel);
+                    });
+                }
             });
         }
 
@@ -780,7 +980,13 @@
                 applyZoom();
             };
         }
+
+        // External link confirmation modal (shared)
     </script>
+
+    <script src="/assets/js/external-link-confirm.js"></script>
+    <script src="/assets/js/back-to-top.js"></script>
+    <script src="/assets/js/nav-focus.js"></script>
     
 </body>
 </html>
