@@ -4,6 +4,14 @@ Welcome to my professional portfolio website!
 
 **Visit the live site:** [https://i-ekoul.github.io/](https://i-ekoul.github.io/)
 
+## Getting Started
+
+**For Visitors:**
+- Start at the [home page](https://i-ekoul.github.io/home/) for an overview
+- Check out the [CS499 ePortfolio](https://i-ekoul.github.io/cs499/) for detailed academic work
+- Browse [projects](https://i-ekoul.github.io/projects/) to see my technical implementations
+- View or download my resume from the home page
+
 ## What You'll Find Here
 
 This portfolio highlights my technical work, professional growth, and the engineering practices I apply to build maintainable, reliable, and user-focused software.
@@ -36,11 +44,3 @@ Discover my academic background, certifications, and professional philosophy. Se
 
 ### Connect
 Ready to collaborate or have questions? Use the contact page to reach out, or connect via GitHub and LinkedIn (links available in the site footer).
-
-## Getting Started
-
-**For Visitors:**
-- Start at the [home page](https://i-ekoul.github.io/home/) for an overview
-- Check out the [CS499 ePortfolio](https://i-ekoul.github.io/cs499/) for detailed academic work
-- Browse [projects](https://i-ekoul.github.io/projects/) to see my technical implementations
-- View or download my resume from the home page
