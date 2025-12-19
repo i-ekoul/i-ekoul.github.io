@@ -1,40 +1,59 @@
-This repo contains the code for my GitHub Pages portfolio site.
+# Portfolio Website
 
-Live site: `https://i-ekoul.github.io/`
+Welcome to my professional portfolio website! This site showcases my work as a computer science student and aspiring full-stack software engineer.
 
-### URLs / routing
-Pages use **directory-style routes** so URLs don’t include `.html` (example: `/skills/` is served by `skills/index.html`).
+**Visit the live site:** [https://i-ekoul.github.io/](https://i-ekoul.github.io/)
 
-**Homepage**
-- Primary URL: `/home/` (served by `home/index.html`)
-- Root `/` redirects to `/home/` via `index.html` (GitHub Pages requires `index.html` at the root)
+## What You'll Find Here
 
-**Legacy compatibility**
-Previously, the old `*.html` pages at the repo root (for example `skills.html`) were kept as **redirect stubs** to preserve older bookmarks/links. Those stubs have been removed to keep the repo clean.
+This portfolio highlights my technical work, professional growth, and the engineering practices I apply to build maintainable, reliable, and user-focused software.
 
-### Are the root `*.html` files still needed?
-- **Required**:
-  - `index.html`: GitHub Pages serves the site root from a root `index.html` (this repo uses it as a redirect to `/home/`).
-- **Not required**:
-  - Root `*.html` stubs (like `skills.html`) are not required for the site to function, but removing them means old `/*.html` bookmarks will **404** instead of redirecting.
+### 🎓 CS499 Capstone ePortfolio
+Start here for a comprehensive overview of my strongest academic work. This section includes:
+- Professional self-assessment
+- Code review video demonstration
+- Three enhanced technical artifacts covering software engineering, algorithms, and databases
+- Detailed before/after comparisons showing improvements and enhancements
 
-### Local preview
-From the repo root, start a tiny static server:
+### 💼 Projects
+Explore selected work spanning:
+- Software engineering and architecture
+- Testing and quality assurance
+- Database-backed applications
+- Graphics programming
 
-- Python:
-  - `python -m http.server 8000`
-  - then open `http://localhost:8000/`
-- Node:
-  - `npx --yes serve . -l 8000`
+Each project includes context, implementation details, and links to source code.
 
-### Repo structure (high level)
-- **Routes**: `home/`, `projects/`, `skills/`, `experience/`, `education/`, `bio/`, `contact/`, `cs499/`
-- **Assets**: `assets/images/...` and `assets/js/...`
-- **Site metadata**: `robots.txt`, `sitemap.xml`, `site.webmanifest`
-- **Icons**: `assets/icons/`
-- **Docs**: `assets/docs/` (ex: resume PDF)
-- **Fallback favicon**: `favicon.ico` remains at the repo root (some browsers request `/favicon.ico` by default)
-- **Styles**: `styles.css`
+### 🛠️ Skills & Experience
+Learn about my technical competencies, professional experience, and the engineering principles I follow:
+- Clear and professional communication
+- Correctness through constraints and validation
+- Performance awareness and trade-off reasoning
+- Security-minded design choices
 
-### Docs
-- Changelog: `docs/CHANGELOG.md`
+### 📚 Education & Bio
+Discover my academic background, certifications, and professional philosophy. See how my journey from Southern California to Eastern Europe has shaped my approach to software development.
+
+### 📧 Connect
+Ready to collaborate or have questions? Use the contact page to reach out, or connect via GitHub and LinkedIn (links available in the site footer).
+
+## Getting Started
+
+**For Visitors:**
+- Start at the [home page](https://i-ekoul.github.io/home/) for an overview
+- Check out the [CS499 ePortfolio](https://i-ekoul.github.io/cs499/) for detailed academic work
+- Browse [projects](https://i-ekoul.github.io/projects/) to see my technical implementations
+- View or download my resume from the home page
+
+**For Developers:**
+To run this site locally, start a static server from the repo root:
+
+```bash
+# Python
+python -m http.server 8000
+
+# Node.js
+npx --yes serve . -l 8000
+```
+
+Then open `http://localhost:8000/` in your browser.
