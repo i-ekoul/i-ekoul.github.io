@@ -2,6 +2,11 @@
 
 All notable changes to this site will be documented in this file.
 
+## 2026-10-19
+
+### Added
+- **Game result card** on the chessboard: a win, loss or draw card when a game ends, with low-poly confetti (faceted shards and tiny knights and kings) on a win; "Play again" and "See the board" actions.
+
 ## 2026-10-18
 
 ### Changed

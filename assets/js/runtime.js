@@ -40,6 +40,7 @@
 
   window.mountPortfolio = function (Component) {
     inst = new Component({});
+    window.__portfolio = inst;
     mounted = true;
     draw();
     if (inst.componentDidMount) inst.componentDidMount();

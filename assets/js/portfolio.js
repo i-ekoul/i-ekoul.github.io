@@ -57,7 +57,7 @@ class Component extends DCLogic {
 constructor(props) {
 super(props);
 this.game = newGame();
-this.state = { mode: 'play', tick: 0, selected: null, last: null, ply: 0, playing: true, thinking: false, isMobile: false, active: 'top', slide: 0, kn: 0, kg: 0 };
+this.state = { mode: 'play', tick: 0, selected: null, last: null, ply: 0, playing: true, thinking: false, isMobile: false, active: 'top', slide: 0, kn: 0, kg: 0, dismissed: false };
 }
 componentDidMount() {
 this.mq = window.matchMedia('(max-width: 700px)');
@@ -95,7 +95,7 @@ this.game = g; this.bump({ ply: ply, last: last, selected: null });
 setMode(mode) {
 clearTimeout(this.botTimer);
 if (mode === 'replay') { this.setPly(0); this.setState({ mode: 'replay', playing: true }); }
-else { this.game = newGame(); this.bump({ mode: 'play', last: null, selected: null, thinking: false }); }
+else { this.game = newGame(); this.bump({ mode: 'play', last: null, selected: null, thinking: false, dismissed: false }); }
 }
 reply() {
 var g = this.game; if (!g || g.isGameOver()) return;
@@ -163,6 +163,32 @@ rankStyle: 'position:absolute;left:3px;top:2px;font:600 10px/1 Geist,system-ui,s
 });
 }
 var cap = this.caption();
+var res = { show: false, title: '', text: '', kicker: '', tone: '#8FB4F2', edge: 'rgba(236,230,218,.18)', confetti: [] };
+if (g && this.state.mode === 'play' && g.isGameOver() && !this.state.dismissed && !this.state.thinking) {
+var moves = Math.ceil(g.history().length / 2); var mv = moves + (moves === 1 ? ' MOVE' : ' MOVES');
+res.show = true;
+if (g.isCheckmate() && g.turn() === 'b') {
+res.kicker = 'CHECKMATE · ' + mv; res.title = 'You won!'; res.text = 'Nicely played. The bot never saw it coming.'; res.tone = '#9FC2AA'; res.edge = '#5E9A78';
+var PAIRS = [['#7FB08F', '#2F6B50'], ['#E06A5C', '#8E2F28'], ['#F6F0E4', '#BFB39B'], ['#E8CC7A', '#A5823A'], ['#A8C5F3', '#4F75B5'], ['#5C83C6', '#1F3A66']];
+var SHAPES = ['polygon(50% 0,100% 100%,0 100%)', 'polygon(50% 0,100% 50%,50% 100%,0 50%)', 'polygon(0 25%,65% 0,100% 75%,35% 100%)', 'polygon(0 0,100% 35%,20% 100%)'];
+var MINI = [SRC.wn, SRC.wk, SRC.bn, SRC.wq];
+for (var ci = 0; ci < 52; ci++) {
+var r1 = ((ci * 37) % 100) / 100, r2 = ((ci * 61 + 13) % 97) / 97, r3 = ((ci * 23 + 7) % 89) / 89;
+var motion = ';animation-duration:' + (2.4 + r2 * 1.8).toFixed(2) + 's;animation-delay:' + (r3 * 1.1).toFixed(2) + 's;--dx:' + ((r1 - 0.5) * 120).toFixed(0) + 'px;--rot:' + (300 + r2 * 480).toFixed(0) + 'deg';
+if (ci % 9 === 4) {
+var sz = (16 + r3 * 6).toFixed(0);
+res.confetti.push('left:' + (r1 * 100).toFixed(1) + '%;width:' + sz + 'px;height:' + sz + 'px;background:url(' + MINI[ci % MINI.length] + ') center/contain no-repeat;filter:drop-shadow(0 1px 1px rgba(0,0,0,.4))' + motion);
+} else {
+var pr = PAIRS[ci % PAIRS.length], w = 8 + r2 * 7, h = 8 + r3 * 8;
+res.confetti.push('left:' + (r1 * 100).toFixed(1) + '%;width:' + w.toFixed(1) + 'px;height:' + h.toFixed(1) + 'px;clip-path:' + SHAPES[ci % SHAPES.length] + ';background:linear-gradient(' + (110 + r1 * 90).toFixed(0) + 'deg,' + pr[0] + ' 0 50%,' + pr[1] + ' 50% 100%)' + motion);
+}
+}
+} else if (g.isCheckmate()) {
+res.kicker = 'CHECKMATE · ' + mv; res.title = 'The bot wins'; res.text = 'It happens to the best of us. Fancy a rematch?'; res.tone = '#E39A8F'; res.edge = 'rgba(160,55,47,.55)';
+} else {
+res.kicker = g.isStalemate() ? 'STALEMATE' : 'DRAW'; res.title = 'It\'s a draw'; res.text = g.isStalemate() ? 'No legal moves left, and no check.' : 'Neither side can win from here.';
+}
+}
 var isPlay = this.state.mode === 'play';
 return {
 tartanBand: SETT + ';height:10px;box-shadow:0 1px 0 rgba(255,255,255,.06)',
@@ -185,6 +211,9 @@ facts: [
 ],
 squares: squares,
 caption1: cap[0], caption2: cap[1],
+result: res.show, resultTitle: res.title, resultText: res.text, resultKicker: res.kicker, resultTone: res.tone, resultEdge: res.edge,
+confetti: res.confetti,
+dismiss: () => this.setState({ dismissed: true }),
 isPlay: isPlay, isReplay: !isPlay,
 playTabStyle: isPlay ? TAB_ON : TAB_OFF,
 thumbStyle: 'position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:linear-gradient(180deg,#F5F0E6 0%,#E4DCCD 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.85),inset 0 -1px 0 rgba(23,19,15,.10),0 1px 2px rgba(0,0,0,.45),0 4px 10px -2px rgba(0,0,0,.4);transition:transform .3s cubic-bezier(.3,.7,.2,1);transform:translateX(' + (isPlay ? '0' : '100%') + ')',
