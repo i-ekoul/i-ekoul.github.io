@@ -1,46 +1,10 @@
-# Portfolio Website
+# escole.dev
 
-Welcome to my professional portfolio website!
+Source for [escole.dev](https://escole.dev), the portfolio of Emmalie Cole, Senior Software Engineer & Engineering Lead.
 
-**Visit the live site:** [https://i-ekoul.github.io/](https://i-ekoul.github.io/)
+- `index.html` is the portfolio. It is pre-rendered, then `assets/js/runtime.js` re-renders it in the browser with [morphdom](https://github.com/patrick-steele-idem/morphdom) so the chessboard, the Opera Game replay and the mobile carousel are interactive.
+- `assets/js/portfolio.js` holds the page logic; the board uses [chess.js](https://github.com/jhlywa/chess.js) (BSD-2-Clause) and a low-poly piece set in `assets/pieces/`.
+- `resume/` and `earlier-work/` are static pages; `assets/docs/resume.pdf` is the one-page resume.
+- Old URLs (`/home/`, `/projects/`, `/cs499/` and the rest) redirect to their new homes.
 
-## Getting Started
-
-**For Visitors:**
-- Start at the [home page](https://i-ekoul.github.io/home/) for an overview
-- Check out the [CS499 ePortfolio](https://i-ekoul.github.io/cs499/) for detailed academic work
-- Browse [projects](https://i-ekoul.github.io/projects/) to see my technical implementations
-- View or download my resume from the home page
-
-## What You'll Find Here
-
-This portfolio highlights my technical work, professional growth, and the engineering practices I apply to build maintainable, reliable, and user-focused software.
-
-### CS499 Capstone ePortfolio
-Start here for a comprehensive overview of my strongest academic work. This section includes:
-- Professional self-assessment
-- Code review video demonstration
-- Three enhanced technical artifacts covering software engineering, algorithms, and databases
-- Detailed before/after comparisons showing improvements and enhancements
-
-### Projects
-Explore selected work spanning:
-- Software engineering and architecture
-- Testing and quality assurance
-- Database-backed applications
-- Graphics programming
-
-Each project includes context, implementation details, and links to source code.
-
-### Skills & Experience
-Learn about my technical competencies, professional experience, and the engineering principles I follow:
-- Clear and professional communication
-- Correctness through constraints and validation
-- Performance awareness and trade-off reasoning
-- Security-minded design choices
-
-### Education & Bio
-Discover my academic background, certifications, and professional philosophy. See how my journey from Southern California to Eastern Europe has shaped my approach to software development.
-
-### Connect
-Ready to collaborate or have questions? Use the contact page to reach out, or connect via GitHub and LinkedIn (links available in the site footer).
+Hosted on GitHub Pages with the custom domain set in `CNAME`.

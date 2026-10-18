@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://i-ekoul.github.io/sitemap.xml
-
-
+Sitemap: https://escole.dev/sitemap.xml

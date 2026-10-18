@@ -2,6 +2,19 @@
 
 All notable changes to this site will be documented in this file.
 
+## 2026-10-18
+
+### Changed
+- **Moved to escole.dev** (`CNAME`); canonical, Open Graph, sitemap and robots now point at the new domain.
+- **Full redesign**: one dark portfolio page at `/` with selected work, an interactive chessboard (play the bot or watch the Opera Game), experience and contact, plus a mobile layout with a bottom tab bar and a swipeable work carousel.
+- **New pages**: `/resume/` (web resume with PDF download) and `/earlier-work/`.
+- **Resume PDF** updated (`assets/docs/resume.pdf`).
+- **Icons**: low-poly knight favicon and app icons; low-poly chess piece set in `assets/pieces/`.
+
+### Removed
+- Old multi-page layout, CS499 ePortfolio, certificates and evidence images, and the old scripts and stylesheet.
+- Old routes (`/home/`, `/projects/`, `/skills/`, `/experience/`, `/education/`, `/bio/`, `/contact/`, `/cs499/`) now redirect to the new pages.
+
 ## 2025-12-18
 
 ### Added
